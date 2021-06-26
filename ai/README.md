@@ -3,4 +3,5 @@ Installed System Dependencies (Arch Linux)
 - soundfont-fluid
 - base-devel
 - alsa-lib / lib32-alsa-lib
-- lib32-jack2
+- jack2 / lib32-jack2
+- portaudio / lib32-portaudio
