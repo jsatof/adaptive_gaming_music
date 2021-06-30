@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-var anim_direction = "Left"
 var anim_mode = "IDLE"
 var animation
 
@@ -20,7 +19,7 @@ enum {
 }
 
 export var move_speed := 80.0
-export var air_speed := 1.0
+export var air_speed := .8
 export var jump_force := 200.0
 
 var _state: int = IDLE
@@ -47,14 +46,7 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 				change_state(AIR)
 		
 		RUN:
-			if move_direction.x >= 0:
-				get_node("Sprite").set_flip_h(false)
-				anim_mode = "RUN"
-				anim_direction = "Left"
-			if move_direction.x <= 0:
-				get_node("Sprite").set_flip_h(true)
-				anim_mode = "RUN"
-				anim_direction = "Right"
+			anim_mode = "RUN"
 			if not move_direction.x:
 				change_state(IDLE)
 			elif state.get_contact_count() == 0:
@@ -66,7 +58,10 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 				state.linear_velocity.x = move_direction.x * move_speed
 				
 		AIR:
-			anim_mode = "AIR"
+			if linear_velocity.y <= 0:
+				anim_mode = "UAIR"
+			if linear_velocity.y > 0:
+				anim_mode = "DAIR"
 			if move_direction.x:
 				state.linear_velocity.x += move_direction.x * air_speed
 			if is_on_ground and just_aired_timer.is_stopped():
@@ -96,5 +91,9 @@ func _process(delta):
 	AnimationLoop()
 
 func AnimationLoop():
-	animation = anim_mode + "_" + anim_direction
+	if linear_velocity.x < 0:
+		get_node("Sprite").set_flip_h(true)
+	if linear_velocity.x > 0:
+		get_node("Sprite").set_flip_h(false)
+	animation = anim_mode
 	get_node("AnimationPlayer").play(animation)
