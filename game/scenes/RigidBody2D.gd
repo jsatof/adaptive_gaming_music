@@ -3,6 +3,16 @@ extends RigidBody2D
 var anim_mode = "IDLE"
 var animation
 
+#DYNAMICALLY CHANGING CAMERA
+#func _ready():
+	#var tilemap_rect = get_parent().get_node("ForegroundOut").get_used_rect()
+	#var tilemap_cell_size = get_parent().get_node("ForegroundOut").cell_size
+	#$Camera2D.limit_left = tilemap_rect.position.x * tilemap_cell_size.x
+	#$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
+	#$Camera2D.limit_top = tilemap_rect.position.y * tilemap_cell_size.y
+	#$Camera2D.limit_bottom = tilemap_rect.end.y * tilemap_cell_size.y
+	#pass
+
 onready var just_aired_timer : Timer = $JustAiredTimer
 onready var _transitions: = {
 		IDLE: [RUN, AIR],
@@ -19,7 +29,7 @@ enum {
 }
 
 export var move_speed := 80.0
-export var air_speed := .8
+export var air_speed := 8
 export var jump_force := 200.0
 
 var _state: int = IDLE
@@ -39,6 +49,7 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	match _state:
 		IDLE:
 			anim_mode = "IDLE"
+			linear_velocity.x = 0
 			if move_direction.x:
 				change_state(RUN)
 			elif is_on_ground and Input.is_action_just_pressed("jump"):
@@ -62,7 +73,7 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 				anim_mode = "UAIR"
 			if linear_velocity.y > 0:
 				anim_mode = "DAIR"
-			if move_direction.x:
+			if move_direction.x and linear_velocity.x < 100 and linear_velocity.x > -100 :
 				state.linear_velocity.x += move_direction.x * air_speed
 			if is_on_ground and just_aired_timer.is_stopped():
 				change_state(IDLE)
@@ -88,12 +99,38 @@ func get_move_direction() -> Vector2:
 	)
 
 func _process(delta):
+	
 	AnimationLoop()
 
 func AnimationLoop():
 	if linear_velocity.x < 0:
-		get_node("Sprite").set_flip_h(true)
+		if $RayCast2D2.is_colliding():
+			get_node("Sprite").set_flip_h(false)
+		else:
+			get_node("Sprite").set_flip_h(true)
 	if linear_velocity.x > 0:
-		get_node("Sprite").set_flip_h(false)
+		if $RayCast2D.is_colliding():
+			get_node("Sprite").set_flip_h(true)
+		else:
+			get_node("Sprite").set_flip_h(false)
+	
 	animation = anim_mode
 	get_node("AnimationPlayer").play(animation)
+
+#CAMERA TRIGGERS
+func _on_Area2D_area_entered(area):
+	$Camera2D.limit_bottom = -100
+func _on_Area2D2_area_entered(area):
+	$Camera2D.limit_bottom = 220
+func _on_Area2D3_area_entered(area):
+	$Camera2D.limit_bottom = 145
+func _on_Area2D4_area_entered(area):
+	$Camera2D.limit_bottom = -100
+func _on_Area2D5_area_entered(area):
+	$Camera2D.limit_bottom = 530
+func _on_Area2D6_area_entered(area):
+	$Camera2D.limit_bottom = 145
+func _on_Area2D7_area_entered(area):
+	$Camera2D.limit_bottom = 530
+func _on_Area2D8_area_entered(area):
+	$Camera2D.limit_bottom = 430
