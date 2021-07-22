@@ -13,6 +13,34 @@ var animation
 	#$Camera2D.limit_bottom = tilemap_rect.end.y * tilemap_cell_size.y
 	#pass
 
+signal new_health(health)
+signal death()
+export (float) var max_health = 3
+onready var health = max_health setget _set_health
+
+func _set_health(value):
+	var prev_health = health
+	health = clamp(value, 0, max_health)
+	if health != prev_health:
+		emit_signal("new_health", health)
+		if health == 0:
+			death()
+
+func _on_Hitbox_area_entered(area):
+	damage()
+
+func damage():
+	if $Invuln.is_stopped():
+		$Invuln.start()
+		_set_health(health - 1)
+		$Damage.play("damage")
+		
+func _on_invulnTimer_timeout():
+	$Damage.play("rest")
+	
+func death():
+	pass
+
 onready var just_aired_timer : Timer = $JustAiredTimer
 onready var _transitions: = {
 		IDLE: [RUN, AIR],
