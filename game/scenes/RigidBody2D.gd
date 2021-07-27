@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+var can_click = true 
+
 var anim_mode = "IDLE"
 var animation
 
@@ -15,6 +17,7 @@ var animation
 
 signal new_health(health)
 signal death()
+var hurt = false
 export (float) var max_health = 3
 onready var health = max_health setget _set_health
 
@@ -33,10 +36,25 @@ func damage():
 	if $Invuln.is_stopped():
 		$Invuln.start()
 		_set_health(health - 1)
-		$Damage.play("damage")
-		
-func _on_invulnTimer_timeout():
-	$Damage.play("rest")
+		hurt = true
+		if $RayCast2D.is_collide_with_bodies_enabled(): #DO THIS!!!!!!!!!!!!!!!!!!
+			can_click = false
+			linear_velocity.y = -150
+			
+			#linear_velocity.x = linear_velocity.x * 1
+			$KB.start()
+		#elif $RayCast2D2.is_collide_with_bodies_enabled(): #DO THIS!!!!!!!!!!!!!!!!!!
+		#	get_tree().get_root().set_disable_input(true)
+		#	linear_velocity.y = -100
+		#	linear_velocity.x = -100
+		#	$KB.start()
+
+func _on_Invuln_timeout():
+	get_node("AnimationPlayer").play("IDLE")
+	hurt = false
+	
+func _on_KB_timeout():
+	can_click = true
 	
 func death():
 	pass
@@ -116,18 +134,23 @@ func enter_state() -> void:
 	match _state:
 		IDLE:
 			linear_velocity.x = 0
+			linear_velocity.y = 0
 		AIR:
 			just_aired_timer.start()
 		_:
 			return
 func get_move_direction() -> Vector2:
-	return Vector2(
-		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")
-	)
+	if can_click:
+		return Vector2(
+			Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+			Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")
+		)
+	else:
+		#CHECK WHERE ENEMY IS
+		return Vector2(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"), 
+		Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up"))
 
 func _process(delta):
-	
 	AnimationLoop()
 
 func AnimationLoop():
@@ -143,7 +166,11 @@ func AnimationLoop():
 			get_node("Sprite").set_flip_h(false)
 	
 	animation = anim_mode
-	get_node("AnimationPlayer").play(animation)
+	if hurt: 
+		get_node("AnimationPlayer").play("DAMAGE")
+	else:
+		get_node("AnimationPlayer").play(animation)
+		
 
 #CAMERA TRIGGERS
 func _on_Area2D_area_entered(area):
