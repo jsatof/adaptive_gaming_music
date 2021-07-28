@@ -1,18 +1,17 @@
 extends KinematicBody2D
 
 const GRAVITY = 10
-const SPEED = 30
+const SPEED = 45
 const FLOOR = Vector2(0, -1)
 
 var velocity = Vector2()
 
 var direction = -1
 
+func _on_Top_area_entered(_area):
+	self.queue_free()
 
-func _ready():
-	pass
-
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity.x = SPEED * direction
 	if direction == -1:
 		get_node("AnimatedSprite").set_flip_h(false)
