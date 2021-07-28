@@ -2,62 +2,58 @@ extends RigidBody2D
 
 var can_click = true 
 
+var OOBX = global_position.x
+var OOBY = global_position.y
+
 var anim_mode = "IDLE"
 var animation
 
-#DYNAMICALLY CHANGING CAMERA
-#func _ready():
-	#var tilemap_rect = get_parent().get_node("ForegroundOut").get_used_rect()
-	#var tilemap_cell_size = get_parent().get_node("ForegroundOut").cell_size
-	#$Camera2D.limit_left = tilemap_rect.position.x * tilemap_cell_size.x
-	#$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
-	#$Camera2D.limit_top = tilemap_rect.position.y * tilemap_cell_size.y
-	#$Camera2D.limit_bottom = tilemap_rect.end.y * tilemap_cell_size.y
-	#pass
-
-signal new_health(health)
-signal death()
 var hurt = false
 export (float) var max_health = 3
 onready var health = max_health setget _set_health
 
 func _set_health(value):
-	var prev_health = health
 	health = clamp(value, 0, max_health)
-	if health != prev_health:
-		emit_signal("new_health", health)
-		if health == 0:
-			death()
+	if health == 0:
+		death()
 
-func _on_Hitbox_area_entered(area):
+func _ready():
+	get_node("AnimationPlayer").play("FULL")
+
+func _on_Hitbox_area_entered(_area):
 	damage()
 
 func damage():
 	if $Invuln.is_stopped():
 		$Invuln.start()
 		_set_health(health - 1)
+		$Stomp/StompBox.scale.x = .1
+		if(health == 3):
+			get_node("AnimationPlayer").play("FULL")
+		if(health == 2):
+			get_node("AnimationPlayer").play("2_HEART")
+		if(health == 1):
+			get_node("AnimationPlayer").play("1_HEART")
 		hurt = true
-		if $RayCast2D.is_collide_with_bodies_enabled(): #DO THIS!!!!!!!!!!!!!!!!!!
-			can_click = false
-			linear_velocity.y = -150
-			
-			#linear_velocity.x = linear_velocity.x * 1
-			$KB.start()
-		#elif $RayCast2D2.is_collide_with_bodies_enabled(): #DO THIS!!!!!!!!!!!!!!!!!!
-		#	get_tree().get_root().set_disable_input(true)
-		#	linear_velocity.y = -100
-		#	linear_velocity.x = -100
-		#	$KB.start()
+		can_click = false
+		linear_velocity.y = -150
+		linear_velocity.x = 0
+		$KB.start()
 
 func _on_Invuln_timeout():
-	get_node("AnimationPlayer").play("IDLE")
-	hurt = false
+	$Stomp/StompBox.scale.x = 1
+	
 	
 func _on_KB_timeout():
 	can_click = true
+	hurt = false
 	
 func death():
-	pass
+	get_node("AnimationPlayer").play("DEAD")
+	global_position.x = -62
+	global_position.y = 50
+	health = 3
+	
 
 onready var just_aired_timer : Timer = $JustAiredTimer
 onready var _transitions: = {
@@ -123,6 +119,8 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 				state.linear_velocity.x += move_direction.x * air_speed
 			if is_on_ground and just_aired_timer.is_stopped():
 				change_state(IDLE)
+				OOBX = global_position.x
+				OOBY = global_position.y
 				
 func change_state(target_state: int) -> void:
 	if not target_state in _transitions[_state]:
@@ -134,7 +132,7 @@ func enter_state() -> void:
 	match _state:
 		IDLE:
 			linear_velocity.x = 0
-			linear_velocity.y = 0
+
 		AIR:
 			just_aired_timer.start()
 		_:
@@ -146,11 +144,9 @@ func get_move_direction() -> Vector2:
 			Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")
 		)
 	else:
-		#CHECK WHERE ENEMY IS
-		return Vector2(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"), 
-		Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up"))
+		return Vector2(0, 0)
 
-func _process(delta):
+func _process(_delta):
 	AnimationLoop()
 
 func AnimationLoop():
@@ -173,19 +169,35 @@ func AnimationLoop():
 		
 
 #CAMERA TRIGGERS
-func _on_Area2D_area_entered(area):
+func _on_Area2D_area_entered(_area):
 	$Camera2D.limit_bottom = -100
-func _on_Area2D2_area_entered(area):
+func _on_Area2D2_area_entered(_area):
 	$Camera2D.limit_bottom = 220
-func _on_Area2D3_area_entered(area):
+func _on_Area2D3_area_entered(_area):
 	$Camera2D.limit_bottom = 145
-func _on_Area2D4_area_entered(area):
+func _on_Area2D4_area_entered(_area):
 	$Camera2D.limit_bottom = -100
-func _on_Area2D5_area_entered(area):
+func _on_Area2D5_area_entered(_area):
 	$Camera2D.limit_bottom = 530
-func _on_Area2D6_area_entered(area):
+func _on_Area2D6_area_entered(_area):
 	$Camera2D.limit_bottom = 145
-func _on_Area2D7_area_entered(area):
+func _on_Area2D7_area_entered(_area):
 	$Camera2D.limit_bottom = 530
-func _on_Area2D8_area_entered(area):
+func _on_Area2D8_area_entered(_area):
 	$Camera2D.limit_bottom = 430
+
+func _on_Stomp_area_entered(_area):
+	linear_velocity.y = -150
+
+func _on_OOBTrig_area_entered(area):
+	global_position.x = OOBX
+	global_position.y = OOBY - 10
+	linear_velocity.y = 150
+	linear_velocity.x = 0
+	_set_health(health - 1)
+	if(health == 3):
+		get_node("AnimationPlayer").play("FULL")
+	if(health == 2):
+		get_node("AnimationPlayer").play("2_HEART")
+	if(health == 1):
+		get_node("AnimationPlayer").play("1_HEART")
