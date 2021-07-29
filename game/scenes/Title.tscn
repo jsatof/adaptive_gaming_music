@@ -1397,7 +1397,7 @@ play_mode = 1
 script = ExtResource( 15 )
 tempo = 130
 bars = 8
-beats_in_bar = 4
+beats_in_bar = 8
 
 [node name="CoreContainer" type="Node" parent="Control/Player/MixingDeskMusic/3heart"]
 script = ExtResource( 12 )
@@ -1409,7 +1409,8 @@ stream = ExtResource( 13 )
 script = ExtResource( 15 )
 tempo = 130
 bars = 8
-beats_in_bar = 4
+beats_in_bar = 8
+transition_type = "Beat"
 
 [node name="CoreContainer" type="Node" parent="Control/Player/MixingDeskMusic/2heart"]
 script = ExtResource( 12 )
@@ -1421,7 +1422,8 @@ stream = ExtResource( 17 )
 script = ExtResource( 15 )
 tempo = 130
 bars = 8
-beats_in_bar = 4
+beats_in_bar = 8
+transition_type = "Beat"
 
 [node name="CoreContainer" type="Node" parent="Control/Player/MixingDeskMusic/1heart"]
 script = ExtResource( 12 )
