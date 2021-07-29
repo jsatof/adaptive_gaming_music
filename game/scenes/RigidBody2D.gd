@@ -2,11 +2,11 @@ extends RigidBody2D
 
 var can_click = true 
 
-var OOBX = global_position.x
-var OOBY = global_position.y
-
 var anim_mode = "IDLE"
 var animation
+
+var OOBX = 75
+var OOBY = 85
 
 var hurt = false
 export (float) var max_health = 3
@@ -32,8 +32,10 @@ func damage():
 			get_node("AnimationPlayer").play("FULL")
 		if(health == 2):
 			get_node("AnimationPlayer").play("2_HEART")
+			$MixingDeskMusic.queue_bar_transition("2heart")
 		if(health == 1):
 			get_node("AnimationPlayer").play("1_HEART")
+			$MixingDeskMusic.queue_bar_transition("1heart")
 		hurt = true
 		can_click = false
 		linear_velocity.y = -150
@@ -189,7 +191,7 @@ func _on_Area2D8_area_entered(_area):
 func _on_Stomp_area_entered(_area):
 	linear_velocity.y = -150
 
-func _on_OOBTrig_area_entered(area):
+func _on_OOBTrig_area_entered(_area):
 	global_position.x = OOBX
 	global_position.y = OOBY - 10
 	linear_velocity.y = 150
@@ -199,5 +201,7 @@ func _on_OOBTrig_area_entered(area):
 		get_node("AnimationPlayer").play("FULL")
 	if(health == 2):
 		get_node("AnimationPlayer").play("2_HEART")
+		$MixingDeskMusic.queue_bar_transition("2heart")
 	if(health == 1):
 		get_node("AnimationPlayer").play("1_HEART")
+		$MixingDeskMusic.queue_bar_transition("1heart")

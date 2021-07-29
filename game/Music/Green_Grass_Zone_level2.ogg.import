@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Green_Grass_Zone_level2.ogg-4391c0abd7c84791bf757043d3bb5925.oggstr"
+
+[deps]
+
+source_file="res://Music/Green_Grass_Zone_level2.ogg"
+dest_files=[ "res://.import/Green_Grass_Zone_level2.ogg-4391c0abd7c84791bf757043d3bb5925.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
