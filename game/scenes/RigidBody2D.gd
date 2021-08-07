@@ -8,6 +8,37 @@ var animation
 var OOBX = 75
 var OOBY = 85
 
+var PunchEnd
+var dir = "left"
+var AttAnim = false
+func attack():
+	if $Attack.is_stopped():
+		$Attack.start()
+		$Punch/PunchBox.set_deferred("disabled", false)
+		AttAnim = true
+		can_click = false
+		if linear_velocity.x == 0:
+			if dir == "left":
+				$Punch/PunchBox.position.x -= 9.5
+				PunchEnd = 9.5
+			if dir == "right":
+				$Punch/PunchBox.position.x += 9.5
+				PunchEnd = -9.5
+		if linear_velocity.x < 0:
+			linear_velocity.x += -50
+			$Punch/PunchBox.position.x -= 9.5
+			PunchEnd = 9.5
+		if linear_velocity.x > 0:
+			linear_velocity.x += 50
+			$Punch/PunchBox.position.x += 9.5
+			PunchEnd = -9.5
+	
+func _on_Attack_timeout():
+	can_click = true
+	AttAnim = false
+	$Punch/PunchBox.position.x += PunchEnd
+	$Punch/PunchBox.set_deferred("disabled", true)
+
 var hurt = false
 export (float) var max_health = 3
 onready var health = max_health setget _set_health
@@ -27,7 +58,7 @@ func damage():
 	if $Invuln.is_stopped():
 		$Invuln.start()
 		_set_health(health - 1)
-		$Stomp/StompBox.scale.x = .1
+		$Stomp/StompBox.scale.x = 0
 		if(health == 3):
 			get_node("AnimationPlayer").play("FULL")
 		if(health == 2):
@@ -44,8 +75,7 @@ func damage():
 
 func _on_Invuln_timeout():
 	$Stomp/StompBox.scale.x = 1
-	
-	
+		
 func _on_KB_timeout():
 	can_click = true
 	hurt = false
@@ -56,7 +86,6 @@ func death():
 	global_position.y = 50
 	health = 3
 	
-
 onready var just_aired_timer : Timer = $JustAiredTimer
 onready var _transitions: = {
 		IDLE: [RUN, AIR],
@@ -152,20 +181,29 @@ func _process(_delta):
 	AnimationLoop()
 
 func AnimationLoop():
+	if can_click:
+		AttAnim = false
 	if linear_velocity.x < 0:
 		if $RayCast2D2.is_colliding():
 			get_node("Sprite").set_flip_h(false)
+			dir = "right"
 		else:
 			get_node("Sprite").set_flip_h(true)
+			dir = "left"
 	if linear_velocity.x > 0:
 		if $RayCast2D.is_colliding():
 			get_node("Sprite").set_flip_h(true)
+			dir = "left"
 		else:
 			get_node("Sprite").set_flip_h(false)
-	
+			dir = "right"
+	if Input.is_action_just_pressed("punch"):
+		attack()
 	animation = anim_mode
 	if hurt: 
 		get_node("AnimationPlayer").play("DAMAGE")
+	elif AttAnim:
+		get_node("AnimationPlayer").play("PUNCH")
 	else:
 		get_node("AnimationPlayer").play(animation)
 		
