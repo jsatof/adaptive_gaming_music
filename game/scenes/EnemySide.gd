@@ -12,6 +12,7 @@ var stop = 0
 func _on_Side_area_entered(_area):
 	$Squish.start()
 	$Smoke.start()
+	$Killed.play()
 	$Hitbox/CollisionShape2D.set_deferred("disabled", true)
 	$Side/CollisionShape2D.set_deferred("disabled", true)
 	$CollisionShape2D.set_deferred("disabled", true)
@@ -20,6 +21,7 @@ func _on_Side_area_entered(_area):
 	$AnimatedSprite.play("dead")
 	
 func _on_Squish_timeout():
+	$Killed.play()
 	$AnimatedSprite.play("smoke")
 
 func _on_Smoke_timeout():

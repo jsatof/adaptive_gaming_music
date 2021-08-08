@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+var incave = false
+
 var can_click = true 
 
 var anim_mode = "IDLE"
@@ -14,6 +16,7 @@ var AttAnim = false
 func attack():
 	if $Attack.is_stopped():
 		$Attack.start()
+		$PunchSFX.play()
 		$Punch/PunchBox.set_deferred("disabled", false)
 		AttAnim = true
 		can_click = false
@@ -57,21 +60,27 @@ func _on_Hitbox_area_entered(_area):
 func damage():
 	if $Invuln.is_stopped():
 		$Invuln.start()
+		$Hurt.play()
 		_set_health(health - 1)
 		$Stomp/StompBox.scale.x = 0
-		if(health == 3):
-			get_node("AnimationPlayer").play("FULL")
 		if(health == 2):
+			if incave == true:
+				$MixingDeskMusic.queue_bar_transition("2heartC")
+			else:
+				$MixingDeskMusic.queue_bar_transition("2heart")
 			get_node("AnimationPlayer").play("2_HEART")
-			$MixingDeskMusic.queue_bar_transition("2heart")
 		if(health == 1):
+			if incave == true:
+				$MixingDeskMusic.queue_bar_transition("1heartC")
+			else:
+				$MixingDeskMusic.queue_bar_transition("1heart")
 			get_node("AnimationPlayer").play("1_HEART")
-			$MixingDeskMusic.queue_bar_transition("1heart")
 		hurt = true
 		can_click = false
-		linear_velocity.y = -150
-		linear_velocity.x = 0
-		$KB.start()
+		if health != 0:
+			linear_velocity.y = -150
+			linear_velocity.x = 0
+			$KB.start()
 
 func _on_Invuln_timeout():
 	$Stomp/StompBox.scale.x = 1
@@ -81,10 +90,30 @@ func _on_KB_timeout():
 	hurt = false
 	
 func death():
-	get_node("AnimationPlayer").play("DEAD")
+	if $DeathTime.is_stopped():
+		linear_velocity.x = 0
+		can_click = false
+		get_node("AnimationPlayer").play("DEAD")
+		$MixingDeskMusic.stop("1heart")
+		$MixingDeskMusic.stop("2heart")
+		$MixingDeskMusic.stop("3heart")
+		$MixingDeskMusic.stop("1heartC")
+		$MixingDeskMusic.stop("2heartC")
+		$MixingDeskMusic.stop("3heartC")
+		$Death.play()
+		$Smoke.play("smoke")
+		incave = false
+		$DeathTime.start()
+	
+func _on_DeathTime_timeout():
+	can_click = true
+	hurt = false
+	linear_velocity.y = 0
 	global_position.x = -62
 	global_position.y = 50
-	health = 3
+	get_node("AnimationPlayer").queue("FULL") #NOT WORKING
+	$MixingDeskMusic.play("3heart")
+	_set_health(3)
 	
 onready var just_aired_timer : Timer = $JustAiredTimer
 onready var _transitions: = {
@@ -125,7 +154,8 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 			linear_velocity.x = 0
 			if move_direction.x:
 				change_state(RUN)
-			elif is_on_ground and Input.is_action_just_pressed("jump"):
+			elif is_on_ground and Input.is_action_just_pressed("jump") and health != 0:
+				$Jump.play()
 				apply_central_impulse(Vector2.UP * jump_force)
 				change_state(AIR)
 		
@@ -135,7 +165,8 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 				change_state(IDLE)
 			elif state.get_contact_count() == 0:
 				change_state(AIR)
-			elif is_on_ground and Input.is_action_just_pressed("jump"):
+			elif is_on_ground and Input.is_action_just_pressed("jump") and health != 0:
+				$Jump.play()
 				apply_central_impulse(Vector2.UP * jump_force)
 				change_state(AIR)
 			else:
@@ -181,32 +212,34 @@ func _process(_delta):
 	AnimationLoop()
 
 func AnimationLoop():
-	if can_click:
-		AttAnim = false
-	if linear_velocity.x < 0:
-		if $RayCast2D2.is_colliding():
-			get_node("Sprite").set_flip_h(false)
-			dir = "right"
+	if health != 0:
+		if can_click:
+			AttAnim = false
+		if linear_velocity.x < 0:
+			if $RayCast2D2.is_colliding():
+				get_node("Sprite").set_flip_h(false)
+				dir = "right"
+			else:
+				get_node("Sprite").set_flip_h(true)
+				dir = "left"
+		if linear_velocity.x > 0:
+			if $RayCast2D.is_colliding():
+				get_node("Sprite").set_flip_h(true)
+				dir = "left"
+			else:
+				get_node("Sprite").set_flip_h(false)
+				dir = "right"
+		if Input.is_action_just_pressed("punch"):
+			attack()
+		animation = anim_mode
+		if hurt: 
+			get_node("AnimationPlayer").play("DAMAGE")
+		elif AttAnim:
+			get_node("AnimationPlayer").play("PUNCH")
 		else:
-			get_node("Sprite").set_flip_h(true)
-			dir = "left"
-	if linear_velocity.x > 0:
-		if $RayCast2D.is_colliding():
-			get_node("Sprite").set_flip_h(true)
-			dir = "left"
-		else:
-			get_node("Sprite").set_flip_h(false)
-			dir = "right"
-	if Input.is_action_just_pressed("punch"):
-		attack()
-	animation = anim_mode
-	if hurt: 
-		get_node("AnimationPlayer").play("DAMAGE")
-	elif AttAnim:
-		get_node("AnimationPlayer").play("PUNCH")
+			get_node("AnimationPlayer").play(animation)
 	else:
-		get_node("AnimationPlayer").play(animation)
-		
+		get_node("AnimationPlayer").play("DEATH")
 
 #CAMERA TRIGGERS
 func _on_Area2D_area_entered(_area):
@@ -230,16 +263,67 @@ func _on_Stomp_area_entered(_area):
 	linear_velocity.y = -150
 
 func _on_OOBTrig_area_entered(_area):
-	global_position.x = OOBX
-	global_position.y = OOBY - 10
-	linear_velocity.y = 150
-	linear_velocity.x = 0
 	_set_health(health - 1)
-	if(health == 3):
-		get_node("AnimationPlayer").play("FULL")
-	if(health == 2):
-		get_node("AnimationPlayer").play("2_HEART")
-		$MixingDeskMusic.queue_bar_transition("2heart")
-	if(health == 1):
-		get_node("AnimationPlayer").play("1_HEART")
-		$MixingDeskMusic.queue_bar_transition("1heart")
+	if health != 0:
+		global_position.x = OOBX
+		global_position.y = OOBY - 10
+		linear_velocity.y = 150
+		linear_velocity.x = 0
+		if(health == 2):
+			get_node("AnimationPlayer").play("2_HEART")
+			$MixingDeskMusic.queue_bar_transition("2heart")
+		if(health == 1):
+			get_node("AnimationPlayer").play("1_HEART")
+			$MixingDeskMusic.queue_bar_transition("1heart")
+
+
+func _on_CaveTrans_area_entered(area):
+	if incave == false:
+		if(health == 3):
+			$MixingDeskMusic.queue_bar_transition("3heartC")
+			incave = true
+		if(health == 2):
+			$MixingDeskMusic.queue_bar_transition("2heartC")
+			incave = true
+		if(health == 1):
+			$MixingDeskMusic.queue_bar_transition("1heartC")
+			incave = true
+
+
+func _on_CaveTrans2_area_entered(area):
+	if incave == false:
+		if(health == 3):
+			$MixingDeskMusic.queue_bar_transition("3heartC")
+			incave = true
+		if(health == 2):
+			$MixingDeskMusic.queue_bar_transition("2heartC")
+			incave = true
+		if(health == 1):
+			$MixingDeskMusic.queue_bar_transition("1heartC")
+			incave = true
+
+
+func _on_ForestTrans_area_entered(area):
+	if incave == true:
+		if(health == 3):
+			$MixingDeskMusic.queue_bar_transition("3heart")
+			incave = false
+		if(health == 2):
+			$MixingDeskMusic.queue_bar_transition("2heart")
+			incave = false
+		if(health == 1):
+			$MixingDeskMusic.queue_bar_transition("1heart")
+			incave = false
+
+
+func _on_ForestTrans2_area_entered(area):
+	if incave == true:
+		if(health == 3):
+			$MixingDeskMusic.queue_bar_transition("3heart")
+			incave = false
+		if(health == 2):
+			$MixingDeskMusic.queue_bar_transition("2heart")
+			incave = false
+		if(health == 1):
+			$MixingDeskMusic.queue_bar_transition("1heart")
+			incave = false

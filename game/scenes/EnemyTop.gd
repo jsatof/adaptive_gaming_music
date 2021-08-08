@@ -20,6 +20,7 @@ func _on_Top_area_entered(_area):
 	$AnimatedSprite.play("dead")
 	
 func _on_Squish_timeout():
+	$Killed.play()
 	$AnimatedSprite.play("smoke")
 
 func _on_Smoke_timeout():
