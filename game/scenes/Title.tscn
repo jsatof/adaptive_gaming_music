@@ -685,56 +685,55 @@ shader_param/speed = null
 [sub_resource type="PhysicsMaterial" id=7]
 friction = 0.0
 
-[sub_resource type="AtlasTexture" id=158]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 19 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=159]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 19 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=160]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 19 )
 region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=161]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 19 )
 region = Rect2( 96, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=162]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 19 )
 region = Rect2( 0, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=163]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 19 )
 region = Rect2( 32, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=164]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 19 )
 region = Rect2( 64, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=165]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 19 )
 region = Rect2( 96, 32, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=166]
+[sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ), null ],
-"loop": false,
-"name": "smoke",
-"speed": 12.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "alive",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), null ],
+"loop": false,
+"name": "smoke",
+"speed": 12.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="Animation" id=9]
-resource_name = "1_HEART"
+[sub_resource type="Animation" id=18]
 tracks/0/type = "value"
 tracks/0/path = NodePath("HUD/Node/Health:frame")
 tracks/0/interp = 1
@@ -748,8 +747,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "2_HEART"
+[sub_resource type="Animation" id=19]
 tracks/0/type = "value"
 tracks/0/path = NodePath("HUD/Node/Health:frame")
 tracks/0/interp = 1
@@ -763,7 +761,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=20]
 length = 0.1
 loop = true
 step = 0.05
@@ -780,7 +778,7 @@ tracks/0/keys = {
 "values": [ 9 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=21]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -795,8 +793,7 @@ tracks/0/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "DEAD"
+[sub_resource type="Animation" id=22]
 tracks/0/type = "value"
 tracks/0/path = NodePath("HUD/Node/Health:frame")
 tracks/0/interp = 1
@@ -810,7 +807,7 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[sub_resource type="Animation" id=167]
+[sub_resource type="Animation" id=23]
 resource_name = "DEATH"
 loop = true
 tracks/0/type = "value"
@@ -826,8 +823,7 @@ tracks/0/keys = {
 "values": [ 18 ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "FULL"
+[sub_resource type="Animation" id=24]
 tracks/0/type = "value"
 tracks/0/path = NodePath("HUD/Node/Health:frame")
 tracks/0/interp = 1
@@ -841,7 +837,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=25]
 loop = true
 step = 0.05
 tracks/0/type = "value"
@@ -857,8 +853,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=16]
-resource_name = "PUNCH"
+[sub_resource type="Animation" id=26]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -872,7 +867,7 @@ tracks/0/keys = {
 "values": [ 10, 11 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=27]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -888,7 +883,7 @@ tracks/0/keys = {
 "values": [ 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=28]
 length = 10.0
 loop = true
 step = 0.01
@@ -905,19 +900,19 @@ tracks/0/keys = {
 "values": [ 0, 8, 8 ]
 }
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=29]
 extents = Vector2( 6.51295, 6.06425 )
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 7.76335, 0.462128 )
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 1.60032, 2.94039 )
 
-[sub_resource type="RectangleShape2D" id=22]
+[sub_resource type="RectangleShape2D" id=32]
 extents = Vector2( 3.95529, 3.51245 )
 
-[sub_resource type="TileSet" id=62]
+[sub_resource type="TileSet" id=33]
 0/name = "aesthetic.png 0"
 0/texture = ExtResource( 8 )
 0/tex_offset = Vector2( 0, 0 )
@@ -961,476 +956,476 @@ extents = Vector2( 3.95529, 3.51245 )
 2/shapes = [  ]
 2/z_index = 0
 
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 19 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 19 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 19 )
-region = Rect2( 64, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 19 )
-region = Rect2( 96, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 19 )
-region = Rect2( 0, 32, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 19 )
-region = Rect2( 32, 32, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 19 )
-region = Rect2( 64, 32, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 19 )
-region = Rect2( 96, 32, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 9 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 9 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 16, 16, 16 )
-
 [sub_resource type="AtlasTexture" id=34]
 atlas = ExtResource( 9 )
-region = Rect2( 16, 16, 16, 16 )
+region = Rect2( 0, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=35]
 atlas = ExtResource( 9 )
-region = Rect2( 32, 16, 16, 16 )
+region = Rect2( 16, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=36]
 atlas = ExtResource( 9 )
-region = Rect2( 48, 16, 16, 16 )
+region = Rect2( 32, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 9 )
-region = Rect2( 64, 16, 16, 16 )
+region = Rect2( 48, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=38]
 atlas = ExtResource( 9 )
+region = Rect2( 64, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 9 )
 region = Rect2( 80, 16, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=39]
-animations = [ {
-"frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), null ],
-"loop": false,
-"name": "smoke",
-"speed": 24.0
-}, {
-"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 32 ), SubResource( 32 ), SubResource( 32 ), SubResource( 32 ), SubResource( 32 ), SubResource( 32 ), SubResource( 32 ), SubResource( 32 ) ],
-"loop": false,
-"name": "dead",
-"speed": 12.0
-}, {
-"frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
-"loop": true,
-"name": "walk",
-"speed": 12.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=40]
-extents = Vector2( 6.98665, 3.55232 )
-
-[sub_resource type="RectangleShape2D" id=41]
-extents = Vector2( 0.672134, 0.1819 )
-
-[sub_resource type="RectangleShape2D" id=42]
-extents = Vector2( 5.27168, 1.7951 )
-
-[sub_resource type="AtlasTexture" id=43]
+[sub_resource type="AtlasTexture" id=40]
 atlas = ExtResource( 19 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=44]
+[sub_resource type="AtlasTexture" id=41]
 atlas = ExtResource( 19 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=45]
+[sub_resource type="AtlasTexture" id=42]
 atlas = ExtResource( 19 )
 region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=46]
+[sub_resource type="AtlasTexture" id=43]
 atlas = ExtResource( 19 )
 region = Rect2( 96, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=47]
+[sub_resource type="AtlasTexture" id=44]
 atlas = ExtResource( 19 )
 region = Rect2( 0, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=48]
+[sub_resource type="AtlasTexture" id=45]
 atlas = ExtResource( 19 )
 region = Rect2( 32, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=49]
+[sub_resource type="AtlasTexture" id=46]
 atlas = ExtResource( 19 )
 region = Rect2( 64, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=50]
+[sub_resource type="AtlasTexture" id=47]
 atlas = ExtResource( 19 )
 region = Rect2( 96, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=51]
-atlas = ExtResource( 20 )
-region = Rect2( 48, 0, 16, 16 )
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 9 )
+region = Rect2( 32, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=52]
-atlas = ExtResource( 20 )
-region = Rect2( 0, 16, 16, 16 )
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 9 )
+region = Rect2( 32, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=53]
-atlas = ExtResource( 20 )
-region = Rect2( 16, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=54]
-atlas = ExtResource( 20 )
-region = Rect2( 32, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=55]
-atlas = ExtResource( 20 )
-region = Rect2( 48, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=56]
-atlas = ExtResource( 20 )
-region = Rect2( 64, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=57]
-atlas = ExtResource( 20 )
-region = Rect2( 80, 16, 16, 16 )
-
-[sub_resource type="SpriteFrames" id=58]
+[sub_resource type="SpriteFrames" id=50]
 animations = [ {
-"frames": [ SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ) ],
+"frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
+"loop": true,
+"name": "walk",
+"speed": 12.0
+}, {
+"frames": [ SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), null ],
 "loop": false,
 "name": "smoke",
 "speed": 24.0
 }, {
-"frames": [ SubResource( 51 ), SubResource( 51 ), SubResource( 51 ), SubResource( 51 ), SubResource( 51 ), SubResource( 51 ), SubResource( 51 ), SubResource( 51 ), SubResource( 51 ), SubResource( 51 ) ],
+"frames": [ SubResource( 48 ), SubResource( 49 ), SubResource( 49 ), SubResource( 49 ), SubResource( 49 ), SubResource( 49 ), SubResource( 49 ), SubResource( 49 ), SubResource( 49 ), SubResource( 49 ) ],
 "loop": false,
 "name": "dead",
 "speed": 12.0
-}, {
-"frames": [ SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ) ],
+} ]
+
+[sub_resource type="RectangleShape2D" id=51]
+extents = Vector2( 6.98665, 3.55232 )
+
+[sub_resource type="RectangleShape2D" id=52]
+extents = Vector2( 0.672134, 0.1819 )
+
+[sub_resource type="RectangleShape2D" id=53]
+extents = Vector2( 5.27168, 1.7951 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 20 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=55]
+atlas = ExtResource( 20 )
+region = Rect2( 16, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 20 )
+region = Rect2( 32, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 20 )
+region = Rect2( 48, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=58]
+atlas = ExtResource( 20 )
+region = Rect2( 64, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 20 )
+region = Rect2( 80, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 19 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 19 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 19 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=63]
+atlas = ExtResource( 19 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=64]
+atlas = ExtResource( 19 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=65]
+atlas = ExtResource( 19 )
+region = Rect2( 32, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=66]
+atlas = ExtResource( 19 )
+region = Rect2( 64, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=67]
+atlas = ExtResource( 19 )
+region = Rect2( 96, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=68]
+atlas = ExtResource( 20 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=69]
+animations = [ {
+"frames": [ SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ) ],
 "loop": true,
 "name": "walk",
 "speed": 12.0
+}, {
+"frames": [ SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ) ],
+"loop": false,
+"name": "smoke",
+"speed": 24.0
+}, {
+"frames": [ SubResource( 68 ), SubResource( 68 ), SubResource( 68 ), SubResource( 68 ), SubResource( 68 ), SubResource( 68 ), SubResource( 68 ), SubResource( 68 ), SubResource( 68 ), SubResource( 68 ) ],
+"loop": false,
+"name": "dead",
+"speed": 12.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=59]
+[sub_resource type="RectangleShape2D" id=70]
 extents = Vector2( 7.02258, 2.07033 )
 
-[sub_resource type="RectangleShape2D" id=60]
+[sub_resource type="RectangleShape2D" id=71]
 extents = Vector2( 0.450611, 0.204092 )
 
-[sub_resource type="RectangleShape2D" id=61]
+[sub_resource type="RectangleShape2D" id=72]
 extents = Vector2( 6.97159, 4.06876 )
 
-[sub_resource type="RectangleShape2D" id=145]
+[sub_resource type="RectangleShape2D" id=73]
 extents = Vector2( 7.70198, 64.6687 )
 
-[sub_resource type="RectangleShape2D" id=146]
+[sub_resource type="RectangleShape2D" id=74]
 extents = Vector2( 4.61804, 71.9441 )
 
-[sub_resource type="RectangleShape2D" id=147]
+[sub_resource type="RectangleShape2D" id=75]
 extents = Vector2( 5.5752, 81.9962 )
 
-[sub_resource type="RectangleShape2D" id=148]
+[sub_resource type="RectangleShape2D" id=76]
 extents = Vector2( 4.31384, 85.7802 )
 
-[sub_resource type="RectangleShape2D" id=149]
+[sub_resource type="RectangleShape2D" id=77]
 extents = Vector2( 5.38232, 65.3533 )
 
-[sub_resource type="RectangleShape2D" id=150]
+[sub_resource type="RectangleShape2D" id=78]
 extents = Vector2( 4.67493, 62.5249 )
 
-[sub_resource type="RectangleShape2D" id=151]
+[sub_resource type="RectangleShape2D" id=79]
 extents = Vector2( 5.62915, 55.3208 )
 
-[sub_resource type="RectangleShape2D" id=152]
+[sub_resource type="RectangleShape2D" id=80]
 extents = Vector2( 6.33643, 51.0782 )
 
-[sub_resource type="RectangleShape2D" id=168]
+[sub_resource type="RectangleShape2D" id=81]
 extents = Vector2( 5.11035, 17.6705 )
 
-[sub_resource type="RectangleShape2D" id=169]
+[sub_resource type="RectangleShape2D" id=82]
 extents = Vector2( 3.06763, 26.1211 )
 
-[sub_resource type="RectangleShape2D" id=170]
+[sub_resource type="RectangleShape2D" id=83]
 extents = Vector2( 5.51001, 60.2764 )
 
-[sub_resource type="RectangleShape2D" id=171]
+[sub_resource type="RectangleShape2D" id=84]
 extents = Vector2( 4.69409, 34.3007 )
 
-[sub_resource type="RectangleShape2D" id=63]
+[sub_resource type="RectangleShape2D" id=85]
 extents = Vector2( 166.64, 0.37722 )
 
-[sub_resource type="RectangleShape2D" id=64]
+[sub_resource type="RectangleShape2D" id=86]
 extents = Vector2( 20.8668, 3.91902 )
 
-[sub_resource type="RectangleShape2D" id=65]
+[sub_resource type="RectangleShape2D" id=87]
 extents = Vector2( 16.977, 3.56235 )
 
-[sub_resource type="RectangleShape2D" id=66]
+[sub_resource type="RectangleShape2D" id=88]
 extents = Vector2( 16.0617, 1.69887 )
 
-[sub_resource type="RectangleShape2D" id=67]
+[sub_resource type="RectangleShape2D" id=89]
 extents = Vector2( 4.65033, 144.76 )
 
-[sub_resource type="RectangleShape2D" id=68]
+[sub_resource type="RectangleShape2D" id=90]
 extents = Vector2( 17.5424, 2.97609 )
 
-[sub_resource type="RectangleShape2D" id=69]
+[sub_resource type="RectangleShape2D" id=91]
 extents = Vector2( 48.6732, 4.16841 )
 
-[sub_resource type="RectangleShape2D" id=70]
+[sub_resource type="RectangleShape2D" id=92]
 extents = Vector2( 104.31, 1.12177 )
 
-[sub_resource type="RectangleShape2D" id=71]
+[sub_resource type="RectangleShape2D" id=93]
 extents = Vector2( 55.2089, 0.246222 )
 
-[sub_resource type="RectangleShape2D" id=72]
+[sub_resource type="RectangleShape2D" id=94]
 extents = Vector2( 23.465, 0.1746 )
 
-[sub_resource type="RectangleShape2D" id=73]
+[sub_resource type="RectangleShape2D" id=95]
 extents = Vector2( 48.2787, 2.25 )
 
-[sub_resource type="RectangleShape2D" id=74]
+[sub_resource type="RectangleShape2D" id=96]
 extents = Vector2( 29.1682, 1.83292 )
 
-[sub_resource type="RectangleShape2D" id=75]
+[sub_resource type="RectangleShape2D" id=97]
 extents = Vector2( 2.45709, 34.181 )
 
-[sub_resource type="RectangleShape2D" id=76]
+[sub_resource type="RectangleShape2D" id=98]
 extents = Vector2( 2.53522, 38.0228 )
 
-[sub_resource type="RectangleShape2D" id=77]
+[sub_resource type="RectangleShape2D" id=99]
 extents = Vector2( 4.10583, 46.751 )
 
-[sub_resource type="RectangleShape2D" id=78]
+[sub_resource type="RectangleShape2D" id=100]
 extents = Vector2( 3.19824, 28.6012 )
 
-[sub_resource type="RectangleShape2D" id=79]
+[sub_resource type="RectangleShape2D" id=101]
 extents = Vector2( 18.2826, 2.09238 )
 
-[sub_resource type="RectangleShape2D" id=80]
+[sub_resource type="RectangleShape2D" id=102]
 extents = Vector2( 0.978088, 8.4762 )
 
-[sub_resource type="RectangleShape2D" id=81]
+[sub_resource type="RectangleShape2D" id=103]
 extents = Vector2( 151.448, 1.44366 )
 
-[sub_resource type="RectangleShape2D" id=82]
+[sub_resource type="RectangleShape2D" id=104]
 extents = Vector2( 6.83228, 0.837967 )
 
-[sub_resource type="RectangleShape2D" id=83]
+[sub_resource type="RectangleShape2D" id=105]
 extents = Vector2( 10.2095, 1.24614 )
 
-[sub_resource type="RectangleShape2D" id=84]
+[sub_resource type="RectangleShape2D" id=106]
 extents = Vector2( 9.98956, 1.15132 )
 
-[sub_resource type="RectangleShape2D" id=85]
+[sub_resource type="RectangleShape2D" id=107]
 extents = Vector2( 1.41196, 29.1732 )
 
-[sub_resource type="RectangleShape2D" id=86]
+[sub_resource type="RectangleShape2D" id=108]
 extents = Vector2( 2.33209, 59.264 )
 
-[sub_resource type="RectangleShape2D" id=87]
+[sub_resource type="RectangleShape2D" id=109]
 extents = Vector2( 126.351, 1.13092 )
 
-[sub_resource type="RectangleShape2D" id=88]
+[sub_resource type="RectangleShape2D" id=110]
 extents = Vector2( 2.0141, 39.0016 )
 
-[sub_resource type="RectangleShape2D" id=89]
+[sub_resource type="RectangleShape2D" id=111]
 extents = Vector2( 2.91052, 79.2533 )
 
-[sub_resource type="RectangleShape2D" id=90]
+[sub_resource type="RectangleShape2D" id=112]
 extents = Vector2( 176.33, 2.84969 )
 
-[sub_resource type="RectangleShape2D" id=91]
+[sub_resource type="RectangleShape2D" id=113]
 extents = Vector2( 6.40198, 0.412064 )
 
-[sub_resource type="RectangleShape2D" id=92]
+[sub_resource type="RectangleShape2D" id=114]
 extents = Vector2( 78.5643, 2.22473 )
 
-[sub_resource type="RectangleShape2D" id=93]
+[sub_resource type="RectangleShape2D" id=115]
 extents = Vector2( 1.6073, 23.286 )
 
-[sub_resource type="RectangleShape2D" id=94]
+[sub_resource type="RectangleShape2D" id=116]
 extents = Vector2( 9.9845, 0.892639 )
 
-[sub_resource type="RectangleShape2D" id=95]
+[sub_resource type="RectangleShape2D" id=117]
 extents = Vector2( 7.57898, 0.980316 )
 
-[sub_resource type="RectangleShape2D" id=96]
+[sub_resource type="RectangleShape2D" id=118]
 extents = Vector2( 1.8302, 54.4086 )
 
-[sub_resource type="RectangleShape2D" id=97]
+[sub_resource type="RectangleShape2D" id=119]
 extents = Vector2( 2.93958, 171.859 )
 
-[sub_resource type="RectangleShape2D" id=98]
+[sub_resource type="RectangleShape2D" id=120]
 extents = Vector2( 3.45166, 436.439 )
 
-[sub_resource type="RectangleShape2D" id=99]
+[sub_resource type="RectangleShape2D" id=121]
 extents = Vector2( 2.43542, 25.346 )
 
-[sub_resource type="RectangleShape2D" id=100]
+[sub_resource type="RectangleShape2D" id=122]
 extents = Vector2( 2.06677, 35.4907 )
 
-[sub_resource type="RectangleShape2D" id=101]
+[sub_resource type="RectangleShape2D" id=123]
 extents = Vector2( 2.52502, 33.8492 )
 
-[sub_resource type="RectangleShape2D" id=102]
+[sub_resource type="RectangleShape2D" id=124]
 extents = Vector2( 25.783, 0.584976 )
 
-[sub_resource type="RectangleShape2D" id=103]
+[sub_resource type="RectangleShape2D" id=125]
 extents = Vector2( 1.89624, 28.5773 )
 
-[sub_resource type="RectangleShape2D" id=104]
+[sub_resource type="RectangleShape2D" id=126]
 extents = Vector2( 33.7526, 0.875433 )
 
-[sub_resource type="RectangleShape2D" id=105]
+[sub_resource type="RectangleShape2D" id=127]
 extents = Vector2( 41.8264, 0.822285 )
 
-[sub_resource type="RectangleShape2D" id=106]
+[sub_resource type="RectangleShape2D" id=128]
 extents = Vector2( 6.05969, 0.350746 )
 
-[sub_resource type="RectangleShape2D" id=107]
+[sub_resource type="RectangleShape2D" id=129]
 extents = Vector2( 5.97205, 0.574913 )
 
-[sub_resource type="RectangleShape2D" id=108]
+[sub_resource type="RectangleShape2D" id=130]
 extents = Vector2( 4.37256, 53.0256 )
 
-[sub_resource type="RectangleShape2D" id=109]
+[sub_resource type="RectangleShape2D" id=131]
 extents = Vector2( 2.04492, 39.6617 )
 
-[sub_resource type="RectangleShape2D" id=110]
+[sub_resource type="RectangleShape2D" id=132]
 extents = Vector2( 49.0642, 1.70299 )
 
-[sub_resource type="RectangleShape2D" id=111]
+[sub_resource type="RectangleShape2D" id=133]
 extents = Vector2( 310.36, 3.33974 )
 
-[sub_resource type="RectangleShape2D" id=112]
+[sub_resource type="RectangleShape2D" id=134]
 extents = Vector2( 2.47107, 52.9824 )
 
-[sub_resource type="RectangleShape2D" id=113]
+[sub_resource type="RectangleShape2D" id=135]
 extents = Vector2( 4.01477, 29.4121 )
 
-[sub_resource type="RectangleShape2D" id=114]
+[sub_resource type="RectangleShape2D" id=136]
 extents = Vector2( 2.18774, 54.1134 )
 
-[sub_resource type="RectangleShape2D" id=115]
+[sub_resource type="RectangleShape2D" id=137]
 extents = Vector2( 3.67114, 59.2399 )
 
-[sub_resource type="RectangleShape2D" id=116]
+[sub_resource type="RectangleShape2D" id=138]
 extents = Vector2( 2.63623, 98.8479 )
 
-[sub_resource type="RectangleShape2D" id=117]
+[sub_resource type="RectangleShape2D" id=139]
 extents = Vector2( 4.19971, 87.2412 )
 
-[sub_resource type="RectangleShape2D" id=118]
+[sub_resource type="RectangleShape2D" id=140]
 extents = Vector2( 2.62598, 31.9908 )
 
-[sub_resource type="RectangleShape2D" id=119]
+[sub_resource type="RectangleShape2D" id=141]
 extents = Vector2( 101.307, 4.48985 )
 
-[sub_resource type="RectangleShape2D" id=120]
+[sub_resource type="RectangleShape2D" id=142]
 extents = Vector2( 10, 1.09024 )
 
-[sub_resource type="RectangleShape2D" id=121]
+[sub_resource type="RectangleShape2D" id=143]
 extents = Vector2( 2.53467, 31.7838 )
 
-[sub_resource type="RectangleShape2D" id=122]
+[sub_resource type="RectangleShape2D" id=144]
 extents = Vector2( 189.203, 1.07135 )
 
-[sub_resource type="RectangleShape2D" id=123]
+[sub_resource type="RectangleShape2D" id=145]
 extents = Vector2( 98.7302, 2.62503 )
 
-[sub_resource type="RectangleShape2D" id=124]
+[sub_resource type="RectangleShape2D" id=146]
 extents = Vector2( 2.96191, 37.7245 )
 
-[sub_resource type="RectangleShape2D" id=125]
+[sub_resource type="RectangleShape2D" id=147]
 extents = Vector2( 54.446, 2.05206 )
 
-[sub_resource type="RectangleShape2D" id=126]
+[sub_resource type="RectangleShape2D" id=148]
 extents = Vector2( 1.56909, 35.6044 )
 
-[sub_resource type="RectangleShape2D" id=127]
+[sub_resource type="RectangleShape2D" id=149]
 extents = Vector2( 1.44458, 41.686 )
 
-[sub_resource type="RectangleShape2D" id=128]
+[sub_resource type="RectangleShape2D" id=150]
 extents = Vector2( 1.24121, 38.0769 )
 
-[sub_resource type="RectangleShape2D" id=129]
+[sub_resource type="RectangleShape2D" id=151]
 extents = Vector2( 39.6235, 1.42957 )
 
-[sub_resource type="RectangleShape2D" id=130]
+[sub_resource type="RectangleShape2D" id=152]
 extents = Vector2( 169.231, 0.683411 )
 
-[sub_resource type="RectangleShape2D" id=131]
+[sub_resource type="RectangleShape2D" id=153]
 extents = Vector2( 1.09131, 33.5847 )
 
-[sub_resource type="RectangleShape2D" id=132]
+[sub_resource type="RectangleShape2D" id=154]
 extents = Vector2( 10.925, 1.23938 )
 
-[sub_resource type="RectangleShape2D" id=133]
+[sub_resource type="RectangleShape2D" id=155]
 extents = Vector2( 31.6777, 0.318726 )
 
-[sub_resource type="RectangleShape2D" id=134]
+[sub_resource type="RectangleShape2D" id=156]
 extents = Vector2( 23.6338, 2.05658 )
 
-[sub_resource type="RectangleShape2D" id=135]
+[sub_resource type="RectangleShape2D" id=157]
 extents = Vector2( 0.847656, 7.52859 )
 
-[sub_resource type="RectangleShape2D" id=136]
+[sub_resource type="RectangleShape2D" id=158]
 extents = Vector2( 0.562012, 9.32834 )
 
-[sub_resource type="RectangleShape2D" id=137]
+[sub_resource type="RectangleShape2D" id=159]
 extents = Vector2( 0.459961, 8.17059 )
 
-[sub_resource type="RectangleShape2D" id=138]
+[sub_resource type="RectangleShape2D" id=160]
 extents = Vector2( 0.776855, 5.97407 )
 
-[sub_resource type="RectangleShape2D" id=139]
+[sub_resource type="RectangleShape2D" id=161]
 extents = Vector2( 1.01758, 8.62338 )
 
-[sub_resource type="RectangleShape2D" id=140]
+[sub_resource type="RectangleShape2D" id=162]
 extents = Vector2( 2.38501, 61.2242 )
 
-[sub_resource type="RectangleShape2D" id=141]
+[sub_resource type="RectangleShape2D" id=163]
 extents = Vector2( 253.127, 1.6257 )
 
-[sub_resource type="RectangleShape2D" id=142]
+[sub_resource type="RectangleShape2D" id=164]
 extents = Vector2( 60.47, 1.38974 )
 
-[sub_resource type="RectangleShape2D" id=143]
+[sub_resource type="RectangleShape2D" id=165]
 extents = Vector2( 85.1782, 1.14383 )
 
-[sub_resource type="RectangleShape2D" id=144]
+[sub_resource type="RectangleShape2D" id=166]
 extents = Vector2( 1.44434, 32.6465 )
 
-[sub_resource type="RectangleShape2D" id=153]
+[sub_resource type="RectangleShape2D" id=167]
 extents = Vector2( 568.339, 10 )
 
-[sub_resource type="RectangleShape2D" id=154]
+[sub_resource type="RectangleShape2D" id=168]
 extents = Vector2( 317.492, 10 )
 
-[sub_resource type="RectangleShape2D" id=155]
+[sub_resource type="RectangleShape2D" id=169]
 extents = Vector2( 362.778, 10 )
 
-[sub_resource type="RectangleShape2D" id=156]
+[sub_resource type="RectangleShape2D" id=170]
 extents = Vector2( 545.806, 10 )
 
 [node name="Node" type="Node"]
@@ -1537,17 +1532,17 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="Control/Player"]
 texture = ExtResource( 1 )
 flip_h = true
-vframes = 5
 hframes = 5
-frame = 9
+vframes = 5
+frame = 18
 
 [node name="Smoke" type="AnimatedSprite" parent="Control/Player"]
-frames = SubResource( 166 )
+frames = SubResource( 16 )
 animation = "alive"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Player"]
 position = Vector2( 0, 0.35 )
-shape = SubResource( 8 )
+shape = SubResource( 17 )
 
 [node name="JustAiredTimer" type="Timer" parent="Control/Player"]
 wait_time = 0.15
@@ -1566,17 +1561,17 @@ wait_time = 0.5
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Player"]
-anims/1_HEART = SubResource( 9 )
-anims/2_HEART = SubResource( 10 )
-anims/DAIR = SubResource( 11 )
-anims/DAMAGE = SubResource( 12 )
-anims/DEAD = SubResource( 13 )
-anims/DEATH = SubResource( 167 )
-anims/FULL = SubResource( 14 )
-anims/IDLE = SubResource( 15 )
-anims/PUNCH = SubResource( 16 )
-anims/RUN = SubResource( 17 )
-anims/UAIR = SubResource( 18 )
+anims/1_HEART = SubResource( 18 )
+anims/2_HEART = SubResource( 19 )
+anims/DAIR = SubResource( 20 )
+anims/DAMAGE = SubResource( 21 )
+anims/DEAD = SubResource( 22 )
+anims/DEATH = SubResource( 23 )
+anims/FULL = SubResource( 24 )
+anims/IDLE = SubResource( 25 )
+anims/PUNCH = SubResource( 26 )
+anims/RUN = SubResource( 27 )
+anims/UAIR = SubResource( 28 )
 
 [node name="Camera2D" type="Camera2D" parent="Control/Player"]
 current = true
@@ -1611,7 +1606,7 @@ collision_layer = 2147483649
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Player/Area2D"]
 position = Vector2( 0, 0.111366 )
-shape = SubResource( 19 )
+shape = SubResource( 29 )
 
 [node name="HUD" type="CanvasLayer" parent="Control/Player"]
 
@@ -1621,7 +1616,6 @@ shape = SubResource( 19 )
 position = Vector2( 35.9084, 17.5501 )
 texture = ExtResource( 11 )
 vframes = 4
-frame = 2
 
 [node name="Stomp" type="Area2D" parent="Control/Player"]
 collision_layer = 8
@@ -1629,7 +1623,7 @@ collision_mask = 8
 
 [node name="StompBox" type="CollisionShape2D" parent="Control/Player/Stomp"]
 position = Vector2( 0, 9.063 )
-shape = SubResource( 20 )
+shape = SubResource( 30 )
 
 [node name="Punch" type="Area2D" parent="Control/Player"]
 position = Vector2( 0.0133133, 2.402 )
@@ -1638,7 +1632,7 @@ collision_mask = 32
 
 [node name="PunchBox" type="CollisionShape2D" parent="Control/Player/Punch"]
 position = Vector2( 0.00331116, -0.00331116 )
-shape = SubResource( 21 )
+shape = SubResource( 31 )
 disabled = true
 
 [node name="OOBTrig" type="Area2D" parent="Control/Player"]
@@ -1646,7 +1640,7 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="OOBTrigBox" type="CollisionShape2D" parent="Control/Player/OOBTrig"]
-shape = SubResource( 22 )
+shape = SubResource( 32 )
 
 [node name="MixingDeskMusic" type="Node" parent="Control/Player"]
 script = ExtResource( 14 )
@@ -1746,7 +1740,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="ForeAesth" type="TileMap" parent="Control"]
-tile_set = SubResource( 62 )
+tile_set = SubResource( 33 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
 format = 1
@@ -1764,7 +1758,7 @@ script = ExtResource( 10 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemyTop"]
 position = Vector2( -0.877502, -1.7688 )
-frames = SubResource( 39 )
+frames = SubResource( 50 )
 animation = "smoke"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemyTop"]
@@ -1772,11 +1766,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop/Hitbox"]
 position = Vector2( -0.839844, 2.70428 )
-shape = SubResource( 40 )
+shape = SubResource( 51 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop"]
 position = Vector2( 0, 6.049 )
-shape = SubResource( 41 )
+shape = SubResource( 52 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemyTop"]
 position = Vector2( -5.40854, -1.66047 )
@@ -1790,7 +1784,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop/Top"]
 position = Vector2( -0.920938, -2.71081 )
-shape = SubResource( 42 )
+shape = SubResource( 53 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemyTop"]
 wait_time = 0.4
@@ -1814,7 +1808,7 @@ script = ExtResource( 10 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemyTop2"]
 position = Vector2( -0.877502, -1.7688 )
-frames = SubResource( 39 )
+frames = SubResource( 50 )
 animation = "smoke"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemyTop2"]
@@ -1822,11 +1816,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop2/Hitbox"]
 position = Vector2( -0.839844, 2.70428 )
-shape = SubResource( 40 )
+shape = SubResource( 51 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop2"]
 position = Vector2( 0, 6.049 )
-shape = SubResource( 41 )
+shape = SubResource( 52 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemyTop2"]
 position = Vector2( -5.40854, -1.66047 )
@@ -1840,7 +1834,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop2/Top"]
 position = Vector2( -0.920938, -2.71081 )
-shape = SubResource( 42 )
+shape = SubResource( 53 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemyTop2"]
 wait_time = 0.4
@@ -1864,7 +1858,7 @@ script = ExtResource( 10 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemyTop3"]
 position = Vector2( -0.877502, -1.7688 )
-frames = SubResource( 39 )
+frames = SubResource( 50 )
 animation = "smoke"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemyTop3"]
@@ -1872,11 +1866,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop3/Hitbox"]
 position = Vector2( -0.839844, 2.70428 )
-shape = SubResource( 40 )
+shape = SubResource( 51 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop3"]
 position = Vector2( 0, 6.049 )
-shape = SubResource( 41 )
+shape = SubResource( 52 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemyTop3"]
 position = Vector2( -5.40854, -1.66047 )
@@ -1890,7 +1884,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop3/Top"]
 position = Vector2( -0.920938, -2.71081 )
-shape = SubResource( 42 )
+shape = SubResource( 53 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemyTop3"]
 wait_time = 0.4
@@ -1914,7 +1908,7 @@ script = ExtResource( 10 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemyTop4"]
 position = Vector2( -0.877502, -1.7688 )
-frames = SubResource( 39 )
+frames = SubResource( 50 )
 animation = "smoke"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemyTop4"]
@@ -1922,11 +1916,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop4/Hitbox"]
 position = Vector2( -0.839844, 2.70428 )
-shape = SubResource( 40 )
+shape = SubResource( 51 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop4"]
 position = Vector2( 0, 6.049 )
-shape = SubResource( 41 )
+shape = SubResource( 52 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemyTop4"]
 position = Vector2( -5.40854, -1.66047 )
@@ -1940,7 +1934,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop4/Top"]
 position = Vector2( -0.920938, -2.71081 )
-shape = SubResource( 42 )
+shape = SubResource( 53 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemyTop4"]
 wait_time = 0.4
@@ -1964,7 +1958,7 @@ script = ExtResource( 10 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemyTop5"]
 position = Vector2( -0.877502, -1.7688 )
-frames = SubResource( 39 )
+frames = SubResource( 50 )
 animation = "smoke"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemyTop5"]
@@ -1972,11 +1966,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop5/Hitbox"]
 position = Vector2( -0.839844, 2.70428 )
-shape = SubResource( 40 )
+shape = SubResource( 51 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop5"]
 position = Vector2( 0, 6.049 )
-shape = SubResource( 41 )
+shape = SubResource( 52 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemyTop5"]
 position = Vector2( -5.40854, -1.66047 )
@@ -1990,7 +1984,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop5/Top"]
 position = Vector2( -0.920938, -2.71081 )
-shape = SubResource( 42 )
+shape = SubResource( 53 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemyTop5"]
 wait_time = 0.4
@@ -2014,7 +2008,7 @@ script = ExtResource( 10 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemyTop9"]
 position = Vector2( -0.877502, -1.7688 )
-frames = SubResource( 39 )
+frames = SubResource( 50 )
 animation = "smoke"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemyTop9"]
@@ -2022,11 +2016,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop9/Hitbox"]
 position = Vector2( -0.839844, 2.70428 )
-shape = SubResource( 40 )
+shape = SubResource( 51 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop9"]
 position = Vector2( 0, 6.049 )
-shape = SubResource( 41 )
+shape = SubResource( 52 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemyTop9"]
 position = Vector2( -5.40854, -1.66047 )
@@ -2040,7 +2034,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop9/Top"]
 position = Vector2( -0.920938, -2.71081 )
-shape = SubResource( 42 )
+shape = SubResource( 53 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemyTop9"]
 wait_time = 0.4
@@ -2064,7 +2058,7 @@ script = ExtResource( 10 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemyTop6"]
 position = Vector2( -0.877502, -1.7688 )
-frames = SubResource( 39 )
+frames = SubResource( 50 )
 animation = "smoke"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemyTop6"]
@@ -2072,11 +2066,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop6/Hitbox"]
 position = Vector2( -0.839844, 2.70428 )
-shape = SubResource( 40 )
+shape = SubResource( 51 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop6"]
 position = Vector2( 0, 6.049 )
-shape = SubResource( 41 )
+shape = SubResource( 52 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemyTop6"]
 position = Vector2( -5.40854, -1.66047 )
@@ -2090,7 +2084,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop6/Top"]
 position = Vector2( -0.920938, -2.71081 )
-shape = SubResource( 42 )
+shape = SubResource( 53 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemyTop6"]
 wait_time = 0.4
@@ -2114,7 +2108,7 @@ script = ExtResource( 10 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemyTop7"]
 position = Vector2( -0.877502, -1.7688 )
-frames = SubResource( 39 )
+frames = SubResource( 50 )
 animation = "smoke"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemyTop7"]
@@ -2122,11 +2116,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop7/Hitbox"]
 position = Vector2( -0.839844, 2.70428 )
-shape = SubResource( 40 )
+shape = SubResource( 51 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop7"]
 position = Vector2( 0, 6.049 )
-shape = SubResource( 41 )
+shape = SubResource( 52 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemyTop7"]
 position = Vector2( -5.40854, -1.66047 )
@@ -2140,7 +2134,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop7/Top"]
 position = Vector2( -0.920938, -2.71081 )
-shape = SubResource( 42 )
+shape = SubResource( 53 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemyTop7"]
 wait_time = 0.4
@@ -2164,7 +2158,7 @@ script = ExtResource( 10 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemyTop8"]
 position = Vector2( -0.877502, -1.7688 )
-frames = SubResource( 39 )
+frames = SubResource( 50 )
 animation = "smoke"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemyTop8"]
@@ -2172,11 +2166,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop8/Hitbox"]
 position = Vector2( -0.839844, 2.70428 )
-shape = SubResource( 40 )
+shape = SubResource( 51 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop8"]
 position = Vector2( 0, 6.049 )
-shape = SubResource( 41 )
+shape = SubResource( 52 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemyTop8"]
 position = Vector2( -5.40854, -1.66047 )
@@ -2190,7 +2184,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemyTop8/Top"]
 position = Vector2( -0.920938, -2.71081 )
-shape = SubResource( 42 )
+shape = SubResource( 53 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemyTop8"]
 wait_time = 0.4
@@ -2213,7 +2207,7 @@ collision_mask = 4
 script = ExtResource( 21 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemySide"]
-frames = SubResource( 58 )
+frames = SubResource( 69 )
 animation = "dead"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemySide"]
@@ -2221,11 +2215,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide/Hitbox"]
 position = Vector2( 0.0262756, -3.30795 )
-shape = SubResource( 59 )
+shape = SubResource( 70 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide"]
 position = Vector2( -0.222733, 7.62133 )
-shape = SubResource( 60 )
+shape = SubResource( 71 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemySide"]
 position = Vector2( -7.10063, 0.118739 )
@@ -2239,7 +2233,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide/Side"]
 position = Vector2( 0, 3.01856 )
-shape = SubResource( 61 )
+shape = SubResource( 72 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemySide"]
 wait_time = 0.4
@@ -2262,7 +2256,7 @@ collision_mask = 4
 script = ExtResource( 21 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemySide2"]
-frames = SubResource( 58 )
+frames = SubResource( 69 )
 animation = "dead"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemySide2"]
@@ -2270,11 +2264,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide2/Hitbox"]
 position = Vector2( 0.0262756, -3.30795 )
-shape = SubResource( 59 )
+shape = SubResource( 70 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide2"]
 position = Vector2( -0.222733, 7.62133 )
-shape = SubResource( 60 )
+shape = SubResource( 71 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemySide2"]
 position = Vector2( -7.10063, 0.118739 )
@@ -2288,7 +2282,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide2/Side"]
 position = Vector2( 0, 3.01856 )
-shape = SubResource( 61 )
+shape = SubResource( 72 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemySide2"]
 wait_time = 0.4
@@ -2311,7 +2305,7 @@ collision_mask = 4
 script = ExtResource( 21 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemySide3"]
-frames = SubResource( 58 )
+frames = SubResource( 69 )
 animation = "dead"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemySide3"]
@@ -2319,11 +2313,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide3/Hitbox"]
 position = Vector2( 0.0262756, -3.30795 )
-shape = SubResource( 59 )
+shape = SubResource( 70 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide3"]
 position = Vector2( -0.222733, 7.62133 )
-shape = SubResource( 60 )
+shape = SubResource( 71 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemySide3"]
 position = Vector2( -7.10063, 0.118739 )
@@ -2337,7 +2331,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide3/Side"]
 position = Vector2( 0, 3.01856 )
-shape = SubResource( 61 )
+shape = SubResource( 72 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemySide3"]
 wait_time = 0.4
@@ -2360,7 +2354,7 @@ collision_mask = 4
 script = ExtResource( 21 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemySide4"]
-frames = SubResource( 58 )
+frames = SubResource( 69 )
 animation = "dead"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemySide4"]
@@ -2368,11 +2362,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide4/Hitbox"]
 position = Vector2( 0.0262756, -3.30795 )
-shape = SubResource( 59 )
+shape = SubResource( 70 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide4"]
 position = Vector2( -0.222733, 7.62133 )
-shape = SubResource( 60 )
+shape = SubResource( 71 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemySide4"]
 position = Vector2( -7.10063, 0.118739 )
@@ -2386,7 +2380,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide4/Side"]
 position = Vector2( 0, 3.01856 )
-shape = SubResource( 61 )
+shape = SubResource( 72 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemySide4"]
 wait_time = 0.4
@@ -2409,7 +2403,7 @@ collision_mask = 4
 script = ExtResource( 21 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemySide5"]
-frames = SubResource( 58 )
+frames = SubResource( 69 )
 animation = "dead"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemySide5"]
@@ -2417,11 +2411,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide5/Hitbox"]
 position = Vector2( 0.0262756, -3.30795 )
-shape = SubResource( 59 )
+shape = SubResource( 70 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide5"]
 position = Vector2( -0.222733, 7.62133 )
-shape = SubResource( 60 )
+shape = SubResource( 71 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemySide5"]
 position = Vector2( -7.10063, 0.118739 )
@@ -2435,7 +2429,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide5/Side"]
 position = Vector2( 0, 3.01856 )
-shape = SubResource( 61 )
+shape = SubResource( 72 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemySide5"]
 wait_time = 0.4
@@ -2458,7 +2452,7 @@ collision_mask = 4
 script = ExtResource( 21 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemySide6"]
-frames = SubResource( 58 )
+frames = SubResource( 69 )
 animation = "dead"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemySide6"]
@@ -2466,11 +2460,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide6/Hitbox"]
 position = Vector2( 0.0262756, -3.30795 )
-shape = SubResource( 59 )
+shape = SubResource( 70 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide6"]
 position = Vector2( -0.222733, 7.62133 )
-shape = SubResource( 60 )
+shape = SubResource( 71 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemySide6"]
 position = Vector2( -7.10063, 0.118739 )
@@ -2484,7 +2478,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide6/Side"]
 position = Vector2( 0, 3.01856 )
-shape = SubResource( 61 )
+shape = SubResource( 72 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemySide6"]
 wait_time = 0.4
@@ -2507,7 +2501,7 @@ collision_mask = 4
 script = ExtResource( 21 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemySide7"]
-frames = SubResource( 58 )
+frames = SubResource( 69 )
 animation = "dead"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemySide7"]
@@ -2515,11 +2509,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide7/Hitbox"]
 position = Vector2( 0.0262756, -3.30795 )
-shape = SubResource( 59 )
+shape = SubResource( 70 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide7"]
 position = Vector2( -0.222733, 7.62133 )
-shape = SubResource( 60 )
+shape = SubResource( 71 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemySide7"]
 position = Vector2( -7.10063, 0.118739 )
@@ -2533,7 +2527,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide7/Side"]
 position = Vector2( 0, 3.01856 )
-shape = SubResource( 61 )
+shape = SubResource( 72 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemySide7"]
 wait_time = 0.4
@@ -2556,7 +2550,7 @@ collision_mask = 4
 script = ExtResource( 21 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemySide8"]
-frames = SubResource( 58 )
+frames = SubResource( 69 )
 animation = "dead"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemySide8"]
@@ -2564,11 +2558,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide8/Hitbox"]
 position = Vector2( 0.0262756, -3.30795 )
-shape = SubResource( 59 )
+shape = SubResource( 70 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide8"]
 position = Vector2( -0.222733, 7.62133 )
-shape = SubResource( 60 )
+shape = SubResource( 71 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemySide8"]
 position = Vector2( -7.10063, 0.118739 )
@@ -2582,7 +2576,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide8/Side"]
 position = Vector2( 0, 3.01856 )
-shape = SubResource( 61 )
+shape = SubResource( 72 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemySide8"]
 wait_time = 0.4
@@ -2605,7 +2599,7 @@ collision_mask = 4
 script = ExtResource( 21 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemySide9"]
-frames = SubResource( 58 )
+frames = SubResource( 69 )
 animation = "dead"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemySide9"]
@@ -2613,11 +2607,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide9/Hitbox"]
 position = Vector2( 0.0262756, -3.30795 )
-shape = SubResource( 59 )
+shape = SubResource( 70 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide9"]
 position = Vector2( -0.222733, 7.62133 )
-shape = SubResource( 60 )
+shape = SubResource( 71 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemySide9"]
 position = Vector2( -7.10063, 0.118739 )
@@ -2631,7 +2625,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide9/Side"]
 position = Vector2( 0, 3.01856 )
-shape = SubResource( 61 )
+shape = SubResource( 72 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemySide9"]
 wait_time = 0.4
@@ -2654,7 +2648,7 @@ collision_mask = 4
 script = ExtResource( 21 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control/Enemies/EnemySide10"]
-frames = SubResource( 58 )
+frames = SubResource( 69 )
 animation = "dead"
 
 [node name="Hitbox" type="Area2D" parent="Control/Enemies/EnemySide10"]
@@ -2662,11 +2656,11 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide10/Hitbox"]
 position = Vector2( 0.0262756, -3.30795 )
-shape = SubResource( 59 )
+shape = SubResource( 70 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide10"]
 position = Vector2( -0.222733, 7.62133 )
-shape = SubResource( 60 )
+shape = SubResource( 71 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Control/Enemies/EnemySide10"]
 position = Vector2( -7.10063, 0.118739 )
@@ -2680,7 +2674,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Enemies/EnemySide10/Side"]
 position = Vector2( 0, 3.01856 )
-shape = SubResource( 61 )
+shape = SubResource( 72 )
 
 [node name="Squish" type="Timer" parent="Control/Enemies/EnemySide10"]
 wait_time = 0.4
@@ -2702,7 +2696,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Triggers/Area2D"]
 position = Vector2( 0.140793, 0.224548 )
-shape = SubResource( 145 )
+shape = SubResource( 73 )
 
 [node name="Area2D2" type="Area2D" parent="Control/Triggers"]
 position = Vector2( 538.116, -253.896 )
@@ -2710,7 +2704,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Triggers/Area2D2"]
 position = Vector2( -0.594604, 0 )
-shape = SubResource( 146 )
+shape = SubResource( 74 )
 
 [node name="Area2D9" type="Area2D" parent="Control/Triggers"]
 position = Vector2( -63.0281, 49.9464 )
@@ -2718,21 +2712,21 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Triggers/Area2D9"]
 position = Vector2( -0.594604, 0 )
-shape = SubResource( 146 )
+shape = SubResource( 74 )
 
 [node name="Area2D3" type="Area2D" parent="Control/Triggers"]
 position = Vector2( 1532.45, -330.285 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Triggers/Area2D3"]
-shape = SubResource( 147 )
+shape = SubResource( 75 )
 
 [node name="Area2D4" type="Area2D" parent="Control/Triggers"]
 position = Vector2( 1441.63, -321.456 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Triggers/Area2D4"]
-shape = SubResource( 148 )
+shape = SubResource( 76 )
 
 [node name="Area2D5" type="Area2D" parent="Control/Triggers"]
 position = Vector2( 2056.42, 31.7828 )
@@ -2740,7 +2734,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Triggers/Area2D5"]
 position = Vector2( -0.000244141, -1.2599 )
-shape = SubResource( 149 )
+shape = SubResource( 77 )
 
 [node name="Area2D6" type="Area2D" parent="Control/Triggers"]
 position = Vector2( 1981.82, 28.2472 )
@@ -2748,7 +2742,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Triggers/Area2D6"]
 position = Vector2( 0.630005, 0 )
-shape = SubResource( 150 )
+shape = SubResource( 78 )
 
 [node name="Area2D7" type="Area2D" parent="Control/Triggers"]
 position = Vector2( 3097.87, 337.969 )
@@ -2756,7 +2750,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Triggers/Area2D7"]
 position = Vector2( 0, -0.629944 )
-shape = SubResource( 151 )
+shape = SubResource( 79 )
 
 [node name="Area2D8" type="Area2D" parent="Control/Triggers"]
 position = Vector2( 3163.98, 338.322 )
@@ -2764,7 +2758,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Triggers/Area2D8"]
 position = Vector2( 0.630127, 0 )
-shape = SubResource( 152 )
+shape = SubResource( 80 )
 
 [node name="CaveTrans" type="Area2D" parent="Control/Triggers"]
 position = Vector2( 2481.58, 75.5834 )
@@ -2772,7 +2766,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Triggers/CaveTrans"]
 position = Vector2( 0, -5.00565 )
-shape = SubResource( 168 )
+shape = SubResource( 81 )
 
 [node name="CaveTrans2" type="Area2D" parent="Control/Triggers"]
 position = Vector2( 3065.5, 339.658 )
@@ -2780,7 +2774,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Triggers/CaveTrans2"]
 position = Vector2( 0, -2.82843 )
-shape = SubResource( 169 )
+shape = SubResource( 82 )
 
 [node name="ForestTrans" type="Area2D" parent="Control/Triggers"]
 position = Vector2( 2159.66, 64.6679 )
@@ -2788,7 +2782,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Triggers/ForestTrans"]
 position = Vector2( -0.943848, -3.7755 )
-shape = SubResource( 170 )
+shape = SubResource( 83 )
 
 [node name="ForestTrans2" type="Area2D" parent="Control/Triggers"]
 position = Vector2( 3264.61, 319.295 )
@@ -2796,7 +2790,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Triggers/ForestTrans2"]
 position = Vector2( -0.707031, -7.42462 )
-shape = SubResource( 171 )
+shape = SubResource( 84 )
 
 [node name="Collision" type="Node" parent="Control"]
 
@@ -2807,7 +2801,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/Ground"]
 position = Vector2( 71.2736, -1.70815 )
-shape = SubResource( 63 )
+shape = SubResource( 85 )
 one_way_collision = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Control/Collision"]
@@ -2816,7 +2810,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D"]
 position = Vector2( 20.8832, 179.919 )
-shape = SubResource( 64 )
+shape = SubResource( 86 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -2824,7 +2818,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D2"]
 position = Vector2( 151.945, 163.341 )
-shape = SubResource( 65 )
+shape = SubResource( 87 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -2832,7 +2826,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D3"]
 position = Vector2( -64.044, 65.635 )
-shape = SubResource( 66 )
+shape = SubResource( 88 )
 one_way_collision = true
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Control/Collision"]
@@ -2842,7 +2836,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D4"]
 position = Vector2( -88.1195, 80.7518 )
 rotation = 0.00174533
-shape = SubResource( 67 )
+shape = SubResource( 89 )
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -2850,7 +2844,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D5"]
 position = Vector2( 247.763, 130.972 )
-shape = SubResource( 68 )
+shape = SubResource( 90 )
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -2858,7 +2852,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D6"]
 position = Vector2( 391.852, 164.159 )
-shape = SubResource( 69 )
+shape = SubResource( 91 )
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -2866,7 +2860,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D7"]
 position = Vector2( 521.485, 64.9571 )
-shape = SubResource( 70 )
+shape = SubResource( 92 )
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -2874,7 +2868,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D8"]
 position = Vector2( 567.65, 16.3707 )
-shape = SubResource( 71 )
+shape = SubResource( 93 )
 one_way_collision = true
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Control/Collision"]
@@ -2883,7 +2877,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D9"]
 position = Vector2( 552.16, -15.7004 )
-shape = SubResource( 72 )
+shape = SubResource( 94 )
 one_way_collision = true
 
 [node name="StaticBody2D10" type="StaticBody2D" parent="Control/Collision"]
@@ -2892,7 +2886,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D10"]
 position = Vector2( 640.204, -45.7898 )
-shape = SubResource( 73 )
+shape = SubResource( 95 )
 
 [node name="StaticBody2D11" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -2901,7 +2895,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D11"]
 position = Vector2( 612.303, -23.9287 )
 rotation = 0.907571
-shape = SubResource( 74 )
+shape = SubResource( 96 )
 
 [node name="StaticBody2D12" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -2910,7 +2904,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D12"]
 position = Vector2( 629.803, 35.1605 )
 rotation = -0.00174533
-shape = SubResource( 75 )
+shape = SubResource( 97 )
 
 [node name="StaticBody2D13" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -2919,7 +2913,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D13"]
 position = Vector2( 692.595, -84.6583 )
 rotation = -0.00174533
-shape = SubResource( 76 )
+shape = SubResource( 98 )
 
 [node name="StaticBody2D14" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -2928,7 +2922,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D14"]
 position = Vector2( 649.854, -141.122 )
 rotation = 1.91986
-shape = SubResource( 77 )
+shape = SubResource( 99 )
 
 [node name="StaticBody2D15" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -2937,7 +2931,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D15"]
 position = Vector2( 590.221, -176.923 )
 rotation = -0.712094
-shape = SubResource( 78 )
+shape = SubResource( 100 )
 
 [node name="StaticBody2D16" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -2946,7 +2940,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D16"]
 position = Vector2( 570.384, -186.662 )
 rotation = 0.356047
-shape = SubResource( 79 )
+shape = SubResource( 101 )
 
 [node name="StaticBody2D17" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -2955,7 +2949,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D17"]
 position = Vector2( 550.573, -199.346 )
 rotation = -0.712094
-shape = SubResource( 80 )
+shape = SubResource( 102 )
 
 [node name="StaticBody2D18" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -2963,7 +2957,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D18"]
 position = Vector2( 695.739, -206.554 )
-shape = SubResource( 81 )
+shape = SubResource( 103 )
 one_way_collision = true
 
 [node name="StaticBody2D19" type="StaticBody2D" parent="Control/Collision"]
@@ -2972,7 +2966,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D19"]
 position = Vector2( 536.043, -159.132 )
-shape = SubResource( 82 )
+shape = SubResource( 104 )
 one_way_collision = true
 
 [node name="StaticBody2D20" type="StaticBody2D" parent="Control/Collision"]
@@ -2981,7 +2975,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D20"]
 position = Vector2( 575.973, -126.768 )
-shape = SubResource( 83 )
+shape = SubResource( 105 )
 one_way_collision = true
 
 [node name="StaticBody2D21" type="StaticBody2D" parent="Control/Collision"]
@@ -2990,7 +2984,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D21"]
 position = Vector2( 623.901, -94.8615 )
-shape = SubResource( 84 )
+shape = SubResource( 106 )
 one_way_collision = true
 
 [node name="StaticBody2D22" type="StaticBody2D" parent="Control/Collision"]
@@ -3000,7 +2994,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D22"]
 position = Vector2( 825.901, -184.209 )
 rotation = 0.712094
-shape = SubResource( 85 )
+shape = SubResource( 107 )
 
 [node name="StaticBody2D23" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -3009,7 +3003,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D23"]
 position = Vector2( 808.367, -108.116 )
 rotation = 0.00174533
-shape = SubResource( 86 )
+shape = SubResource( 108 )
 
 [node name="StaticBody2D24" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -3017,7 +3011,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D24"]
 position = Vector2( 1023.96, -254.922 )
-shape = SubResource( 87 )
+shape = SubResource( 109 )
 one_way_collision = true
 
 [node name="StaticBody2D25" type="StaticBody2D" parent="Control/Collision"]
@@ -3027,7 +3021,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D25"]
 position = Vector2( 919.941, -217.425 )
 rotation = -0.47473
-shape = SubResource( 88 )
+shape = SubResource( 110 )
 
 [node name="StaticBody2D26" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -3036,7 +3030,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D26"]
 position = Vector2( 938.513, -128.782 )
 rotation = -0.00174533
-shape = SubResource( 89 )
+shape = SubResource( 111 )
 
 [node name="StaticBody2D27" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -3044,7 +3038,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D27"]
 position = Vector2( 1271.05, -205.163 )
-shape = SubResource( 90 )
+shape = SubResource( 112 )
 
 [node name="StaticBody2D28" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -3052,7 +3046,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D28"]
 position = Vector2( 1352.01, -255.586 )
-shape = SubResource( 91 )
+shape = SubResource( 113 )
 one_way_collision = true
 
 [node name="StaticBody2D29" type="StaticBody2D" parent="Control/Collision"]
@@ -3061,7 +3055,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D29"]
 position = Vector2( 1488.05, -285.775 )
-shape = SubResource( 92 )
+shape = SubResource( 114 )
 
 [node name="StaticBody2D30" type="StaticBody2D" parent="Control/Collision"]
 collision_layer = 4
@@ -3070,7 +3064,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D30"]
 position = Vector2( 1421.18, -263.755 )
 rotation = -0.356047
-shape = SubResource( 93 )
+shape = SubResource( 115 )
 
 [node name="StaticBody2D31" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 1576.47, -322.262 )
@@ -3079,7 +3073,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D31"]
 position = Vector2( 7.52893, 115.16 )
-shape = SubResource( 94 )
+shape = SubResource( 116 )
 one_way_collision = true
 
 [node name="StaticBody2D32" type="StaticBody2D" parent="Control/Collision"]
@@ -3089,7 +3083,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D32"]
 position = Vector2( 96.0873, 67.2192 )
-shape = SubResource( 95 )
+shape = SubResource( 117 )
 one_way_collision = true
 
 [node name="StaticBody2D33" type="StaticBody2D" parent="Control/Collision"]
@@ -3100,7 +3094,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D33"]
 position = Vector2( -31.1891, 90.5425 )
 rotation = 0.00174533
-shape = SubResource( 96 )
+shape = SubResource( 118 )
 
 [node name="StaticBody2D34" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 1576.47, -322.262 )
@@ -3110,7 +3104,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D34"]
 position = Vector2( 117.018, 84.376 )
 rotation = -0.139626
-shape = SubResource( 97 )
+shape = SubResource( 119 )
 
 [node name="StaticBody2D35" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 1462.51, -17.3979 )
@@ -3120,7 +3114,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D35"]
 position = Vector2( -5.62671, 280.845 )
 rotation = 0.00174533
-shape = SubResource( 98 )
+shape = SubResource( 120 )
 
 [node name="StaticBody2D36" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 1484.52, -52.5905 )
@@ -3130,7 +3124,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D36"]
 position = Vector2( -3.85999, 13.5361 )
 rotation = 0.00174533
-shape = SubResource( 99 )
+shape = SubResource( 121 )
 
 [node name="StaticBody2D37" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 1496.65, -71.3602 )
@@ -3140,7 +3134,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D37"]
 position = Vector2( 7.81848, -17.493 )
 rotation = 0.712094
-shape = SubResource( 100 )
+shape = SubResource( 122 )
 
 [node name="StaticBody2D38" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 1541.62, -153.51 )
@@ -3150,7 +3144,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D38"]
 position = Vector2( -6.76208, 6.38751 )
 rotation = 0.237365
-shape = SubResource( 101 )
+shape = SubResource( 123 )
 
 [node name="StaticBody2D39" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 1648.42, -159.183 )
@@ -3159,7 +3153,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D39"]
 position = Vector2( -0.498657, -0.224426 )
-shape = SubResource( 102 )
+shape = SubResource( 124 )
 one_way_collision = true
 
 [node name="StaticBody2D40" type="StaticBody2D" parent="Control/Collision"]
@@ -3170,7 +3164,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D40"]
 position = Vector2( 114.653, 45.0424 )
 rotation = -0.947714
-shape = SubResource( 103 )
+shape = SubResource( 125 )
 
 [node name="StaticBody2D41" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 1625, -98 )
@@ -3179,7 +3173,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D41"]
 position = Vector2( 46.7441, 130.894 )
-shape = SubResource( 104 )
+shape = SubResource( 126 )
 one_way_collision = true
 
 [node name="StaticBody2D42" type="StaticBody2D" parent="Control/Collision"]
@@ -3189,7 +3183,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D42"]
 position = Vector2( -73.1202, 82.8247 )
-shape = SubResource( 105 )
+shape = SubResource( 127 )
 one_way_collision = true
 
 [node name="StaticBody2D43" type="StaticBody2D" parent="Control/Collision"]
@@ -3199,7 +3193,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D43"]
 position = Vector2( -1.00354, 34.3516 )
-shape = SubResource( 106 )
+shape = SubResource( 128 )
 one_way_collision = true
 
 [node name="StaticBody2D44" type="StaticBody2D" parent="Control/Collision"]
@@ -3209,7 +3203,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D44"]
 position = Vector2( -48.9781, -13.4354 )
-shape = SubResource( 107 )
+shape = SubResource( 129 )
 one_way_collision = true
 
 [node name="StaticBody2D45" type="StaticBody2D" parent="Control/Collision"]
@@ -3220,7 +3214,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D45"]
 position = Vector2( 689.913, 88.3064 )
 rotation = -1.0664
-shape = SubResource( 108 )
+shape = SubResource( 130 )
 
 [node name="StaticBody2D46" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 1652.79, -77.9206 )
@@ -3230,7 +3224,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D46"]
 position = Vector2( 143.54, 202.159 )
 rotation = -0.00174533
-shape = SubResource( 109 )
+shape = SubResource( 131 )
 
 [node name="StaticBody2D47" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 1652.79, -77.9206 )
@@ -3239,7 +3233,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D47"]
 position = Vector2( 807.022, 175.564 )
-shape = SubResource( 110 )
+shape = SubResource( 132 )
 
 [node name="StaticBody2D48" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 1652.79, -77.9206 )
@@ -3248,7 +3242,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D48"]
 position = Vector2( 450.76, 161.27 )
-shape = SubResource( 111 )
+shape = SubResource( 133 )
 
 [node name="StaticBody2D49" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 1652.79, -77.9206 )
@@ -3258,7 +3252,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D49"]
 position = Vector2( 32.2635, -221.347 )
 rotation = -0.00174533
-shape = SubResource( 112 )
+shape = SubResource( 134 )
 
 [node name="StaticBody2D50" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2450.61, 150.07 )
@@ -3268,7 +3262,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D50"]
 position = Vector2( -41.3708, 261.402 )
 rotation = 0.785398
-shape = SubResource( 113 )
+shape = SubResource( 135 )
 
 [node name="StaticBody2D51" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2450.61, 150.07 )
@@ -3278,7 +3272,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D51"]
 position = Vector2( 0.80249, 197.005 )
 rotation = 0.356047
-shape = SubResource( 114 )
+shape = SubResource( 136 )
 
 [node name="StaticBody2D52" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2450.61, 150.07 )
@@ -3288,7 +3282,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D52"]
 position = Vector2( 121.27, 138.764 )
 rotation = -0.237365
-shape = SubResource( 115 )
+shape = SubResource( 137 )
 
 [node name="StaticBody2D53" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2450.61, 150.07 )
@@ -3298,7 +3292,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D53"]
 position = Vector2( 31.2463, 49.5894 )
 rotation = 0.118682
-shape = SubResource( 116 )
+shape = SubResource( 138 )
 
 [node name="StaticBody2D54" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2450.61, 150.07 )
@@ -3308,7 +3302,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D54"]
 position = Vector2( 106.157, -2.11452 )
 rotation = -0.00174533
-shape = SubResource( 117 )
+shape = SubResource( 139 )
 
 [node name="StaticBody2D55" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2450.61, 150.07 )
@@ -3318,7 +3312,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D55"]
 position = Vector2( 94.2871, -97.6542 )
 rotation = -0.712094
-shape = SubResource( 118 )
+shape = SubResource( 140 )
 
 [node name="StaticBody2D56" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2450.61, 150.07 )
@@ -3327,7 +3321,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D56"]
 position = Vector2( 37.7087, -114.721 )
-shape = SubResource( 119 )
+shape = SubResource( 141 )
 
 [node name="StaticBody2D57" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2556.35, 409.287 )
@@ -3336,7 +3330,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D57"]
 position = Vector2( 333.642, 39.7951 )
-shape = SubResource( 120 )
+shape = SubResource( 142 )
 
 [node name="StaticBody2D58" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2556.35, 409.287 )
@@ -3346,7 +3340,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D58"]
 position = Vector2( 48.8218, -40.6323 )
 rotation = -0.712094
-shape = SubResource( 121 )
+shape = SubResource( 143 )
 
 [node name="StaticBody2D59" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2556.35, 409.287 )
@@ -3355,7 +3349,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D59"]
 position = Vector2( 160.85, 55.7823 )
-shape = SubResource( 122 )
+shape = SubResource( 144 )
 
 [node name="StaticBody2D60" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2556.35, 409.287 )
@@ -3364,7 +3358,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D60"]
 position = Vector2( -73.0933, 73.3484 )
-shape = SubResource( 123 )
+shape = SubResource( 145 )
 
 [node name="StaticBody2D61" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2556.35, 409.287 )
@@ -3374,7 +3368,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D61"]
 position = Vector2( -163.437, 48.1205 )
 rotation = 0.00174533
-shape = SubResource( 124 )
+shape = SubResource( 146 )
 
 [node name="StaticBody2D62" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2734.51, 367.432 )
@@ -3383,7 +3377,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D62"]
 position = Vector2( 187.553, -56.935 )
-shape = SubResource( 125 )
+shape = SubResource( 147 )
 
 [node name="StaticBody2D63" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2734.51, 367.432 )
@@ -3393,7 +3387,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D63"]
 position = Vector2( 112.922, -35.7629 )
 rotation = 0.947714
-shape = SubResource( 126 )
+shape = SubResource( 148 )
 
 [node name="StaticBody2D64" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2734.51, 367.432 )
@@ -3403,7 +3397,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D64"]
 position = Vector2( 70.5327, 9.75342 )
 rotation = 0.593412
-shape = SubResource( 127 )
+shape = SubResource( 149 )
 
 [node name="StaticBody2D65" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2734.51, 367.432 )
@@ -3413,7 +3407,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D65"]
 position = Vector2( -66.875, 34.1875 )
 rotation = -1.30376
-shape = SubResource( 128 )
+shape = SubResource( 150 )
 
 [node name="StaticBody2D66" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2734.51, 367.432 )
@@ -3422,7 +3416,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D66"]
 position = Vector2( 9.11768, 43.9971 )
-shape = SubResource( 129 )
+shape = SubResource( 151 )
 
 [node name="StaticBody2D67" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 3022.6, 351.125 )
@@ -3431,7 +3425,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D67"]
 position = Vector2( 58.897, 17.5566 )
-shape = SubResource( 130 )
+shape = SubResource( 152 )
 
 [node name="StaticBody2D68" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 3022.6, 351.125 )
@@ -3441,7 +3435,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D68"]
 position = Vector2( -109.193, 52.1622 )
 rotation = -0.00174533
-shape = SubResource( 131 )
+shape = SubResource( 153 )
 
 [node name="StaticBody2D69" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 3022.6, 351.125 )
@@ -3450,7 +3444,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D69"]
 position = Vector2( -115.67, 82.1123 )
-shape = SubResource( 132 )
+shape = SubResource( 154 )
 
 [node name="StaticBody2D70" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 3022.6, 351.125 )
@@ -3459,7 +3453,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D70"]
 position = Vector2( -158.701, 49.1945 )
-shape = SubResource( 133 )
+shape = SubResource( 155 )
 one_way_collision = true
 
 [node name="StaticBody2D71" type="StaticBody2D" parent="Control/Collision"]
@@ -3470,7 +3464,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D71"]
 position = Vector2( 408.661, 117.727 )
 rotation = -0.485202
-shape = SubResource( 134 )
+shape = SubResource( 156 )
 
 [node name="StaticBody2D72" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2587.71, 181.949 )
@@ -3480,7 +3474,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D72"]
 position = Vector2( 308.968, 259.166 )
 rotation = 0.0261799
-shape = SubResource( 135 )
+shape = SubResource( 157 )
 
 [node name="StaticBody2D73" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2587.71, 181.949 )
@@ -3490,7 +3484,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D73"]
 position = Vector2( 292.623, 275.966 )
 rotation = 0.0261799
-shape = SubResource( 136 )
+shape = SubResource( 158 )
 
 [node name="StaticBody2D74" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2587.71, 181.949 )
@@ -3500,7 +3494,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D74"]
 position = Vector2( -59.4353, 291.529 )
 rotation = 0.0261799
-shape = SubResource( 137 )
+shape = SubResource( 159 )
 
 [node name="StaticBody2D75" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 2587.71, 181.949 )
@@ -3510,7 +3504,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D75"]
 position = Vector2( -174.481, -90.9105 )
 rotation = -0.0261799
-shape = SubResource( 138 )
+shape = SubResource( 160 )
 
 [node name="StaticBody2D78" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 3368.95, 278.454 )
@@ -3520,7 +3514,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D78"]
 position = Vector2( -135.83, 82.9749 )
 rotation = 0.0261799
-shape = SubResource( 139 )
+shape = SubResource( 161 )
 
 [node name="StaticBody2D79" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 3368.95, 278.454 )
@@ -3530,7 +3524,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D79"]
 position = Vector2( 541.272, -21.9757 )
 rotation = -0.00174533
-shape = SubResource( 140 )
+shape = SubResource( 162 )
 
 [node name="StaticBody2D80" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 3368.95, 278.454 )
@@ -3539,7 +3533,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D80"]
 position = Vector2( 325.743, 11.1737 )
-shape = SubResource( 141 )
+shape = SubResource( 163 )
 one_way_collision = true
 
 [node name="StaticBody2D81" type="StaticBody2D" parent="Control/Collision"]
@@ -3549,7 +3543,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D81"]
 position = Vector2( 36.5137, 42.9263 )
-shape = SubResource( 142 )
+shape = SubResource( 164 )
 one_way_collision = true
 
 [node name="StaticBody2D82" type="StaticBody2D" parent="Control/Collision"]
@@ -3559,7 +3553,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D82"]
 position = Vector2( -51.4685, 74.6838 )
-shape = SubResource( 143 )
+shape = SubResource( 165 )
 
 [node name="StaticBody2D76" type="StaticBody2D" parent="Control/Collision"]
 position = Vector2( 1456.46, -193.063 )
@@ -3569,7 +3563,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Collision/StaticBody2D76"]
 position = Vector2( -27.5608, -40.3175 )
 rotation = -0.00174533
-shape = SubResource( 144 )
+shape = SubResource( 166 )
 
 [node name="OOB" type="Node" parent="."]
 
@@ -3580,7 +3574,7 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OOB/Area2D"]
 position = Vector2( 483.953, -2.99664 )
-shape = SubResource( 153 )
+shape = SubResource( 167 )
 
 [node name="Area2D2" type="Area2D" parent="OOB"]
 position = Vector2( 999.89, 35.5935 )
@@ -3588,7 +3582,7 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OOB/Area2D2"]
-shape = SubResource( 154 )
+shape = SubResource( 168 )
 
 [node name="Area2D3" type="Area2D" parent="OOB"]
 position = Vector2( 1629.63, 287.382 )
@@ -3596,7 +3590,7 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OOB/Area2D3"]
-shape = SubResource( 155 )
+shape = SubResource( 169 )
 
 [node name="Area2D4" type="Area2D" parent="OOB"]
 position = Vector2( 3539.81, 543.702 )
@@ -3604,7 +3598,8 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OOB/Area2D4"]
-shape = SubResource( 156 )
+shape = SubResource( 170 )
+
 [connection signal="input_event" from="Control/Player" to="Control/Player" method="_on_RigidBody2D_input_event"]
 [connection signal="timeout" from="Control/Player/Invuln" to="Control/Player" method="_on_Invuln_timeout"]
 [connection signal="timeout" from="Control/Player/KB" to="Control/Player" method="_on_KB_timeout"]

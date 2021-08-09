@@ -111,7 +111,11 @@ func _on_DeathTime_timeout():
 	linear_velocity.y = 0
 	global_position.x = -62
 	global_position.y = 50
-	get_node("AnimationPlayer").queue("FULL") #NOT WORKING
+	
+	# manually set the frame for the hud sprite
+	assert(get_node("HUD/Node/Health") != null)
+	get_node("HUD/Node/Health").frame = 0
+	
 	$MixingDeskMusic.play("3heart")
 	_set_health(3)
 	
