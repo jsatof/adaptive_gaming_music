@@ -111,6 +111,7 @@ func _on_DeathTime_timeout():
 	linear_velocity.y = 0
 	global_position.x = -62
 	global_position.y = 50
+	$Smoke.play("alive")
 	
 	# manually set the frame for the hud sprite
 	assert(get_node("HUD/Node/Health") != null)
